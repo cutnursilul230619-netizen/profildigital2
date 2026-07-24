@@ -3,146 +3,485 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profil Digital - Cut Nursilul</title>
+
+<title>Portofolio | Cut Nursilul</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background:linear-gradient(135deg,#6a11cb,#2575fc);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:20px;
+background:linear-gradient(135deg,#4F46E5,#7C3AED,#2563EB);
+color:white;
+}
+
+/* Navbar */
+
+nav{
+position:fixed;
+width:100%;
+padding:18px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+z-index:999;
+}
+
+nav h2{
+font-size:24px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#FFD700;
+}
+
+/* Hero */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.hero-content{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+padding:40px;
+
+border-radius:25px;
+
+text-align:center;
+
+max-width:700px;
+
+box-shadow:0 10px 35px rgba(0,0,0,.3);
+
+animation:fade 1.2s;
+}
+
+.hero img{
+width:170px;
+height:170px;
+border-radius:50%;
+border:5px solid white;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.hero h3{
+font-weight:400;
+margin-bottom:20px;
+}
+
+.hero p{
+line-height:1.8;
+font-size:16px;
+}
+
+.btn{
+margin-top:30px;
+display:inline-block;
+padding:12px 30px;
+background:#FFD700;
+color:black;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+transition:.4s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+/* Section */
+
+section{
+padding:90px 10%;
+}
+
+.title{
+text-align:center;
+font-size:35px;
+margin-bottom:50px;
+}
+
+/* Card */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 .card{
-    width:360px;
-    background:#fff;
-    border-radius:20px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 15px 30px rgba(0,0,0,0.25);
-    animation:fadeIn 1s ease;
+
+background:rgba(255,255,255,.15);
+
+padding:30px;
+
+border-radius:20px;
+
+backdrop-filter:blur(15px);
+
+transition:.4s;
+
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+
 }
 
-.profile-img{
-    width:170px;
-    height:170px;
-    border-radius:50%;
-    border:5px solid #2575fc;
-    object-fit:cover;
-    margin-bottom:15px;
+.card:hover{
+
+transform:translateY(-10px);
+
 }
 
-h1{
-    color:#333;
-    margin-bottom:5px;
+.card h3{
+margin-bottom:15px;
 }
 
-.job{
-    color:#2575fc;
-    font-weight:bold;
-    margin-bottom:15px;
+.skill{
+
+margin-bottom:20px;
+
 }
 
-.desc{
-    color:#555;
-    line-height:1.6;
-    margin-bottom:20px;
+.skill p{
+
+margin-bottom:8px;
+
 }
 
-button{
-    background:#2575fc;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:16px;
-    transition:0.3s;
+.bar{
+
+height:10px;
+
+background:white;
+
+border-radius:10px;
+
+overflow:hidden;
+
 }
 
-button:hover{
-    background:#6a11cb;
-    transform:scale(1.05);
+.fill{
+
+height:100%;
+
+background:#FFD700;
+
 }
 
-#message{
-    margin-top:15px;
-    color:green;
-    font-weight:bold;
+footer{
+
+text-align:center;
+
+padding:30px;
+
+background:rgba(255,255,255,.08);
+
 }
 
-.social{
-    margin-top:25px;
-}
-
-.social a{
-    text-decoration:none;
-    color:#2575fc;
-    font-weight:bold;
-    margin:0 10px;
-    transition:.3s;
-}
-
-.social a:hover{
-    color:#6a11cb;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
 </style>
 
 </head>
+
 <body>
 
-<div class="card">
+<nav>
 
-    <img src="https://via.placeholder.com/170" alt="Foto Profil" class="profile-img">
+<h2>Cut Nursilul</h2>
 
-    <h1>Cut Nursilul</h1>
+<ul>
 
-    <p class="job">Digital Profile</p>
+<li><a href="#about">Tentang</a></li>
 
-    <p class="desc">
-        Halo! Saya <strong>Cut Nursilul</strong>. Saya memiliki minat dalam dunia
-        teknologi, desain, dan pengembangan website. Saya senang belajar hal baru,
-        mengembangkan keterampilan, serta membuat proyek yang bermanfaat.
-    </p>
+<li><a href="#experience">Pengalaman</a></li>
 
-    <button onclick="showMessage()">Sapa Saya 👋</button>
+<li><a href="#skills">Skill</a></li>
 
-    <div id="message"></div>
+<li><a href="#contact">Kontak</a></li>
 
-    <div class="social">
-        <a href="#">Instagram</a> |
-        <a href="#">Facebook</a> |
-        <a href="#">GitHub</a>
-    </div>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<img src="foto.png" alt="Foto Profil">
+
+<h1 id="typing"></h1>
+
+<h3>UI/UX Designer • Web Designer</h3>
+
+<p>
+
+Halo, saya <b>Cut Nursilul</b>, seorang yang memiliki minat dalam
+
+pengembangan antarmuka pengguna (UI) dan pengalaman pengguna (UX).
+
+Saya senang membuat desain yang menarik, mudah digunakan,
+
+serta memberikan pengalaman terbaik bagi pengguna.
+
+</p>
+
+<a href="#experience" class="btn">Lihat Portofolio</a>
 
 </div>
 
+</section>
+
+<section id="about">
+
+<h2 class="title">Tentang Saya</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Profil</h3>
+
+<p>
+
+Saya memiliki ketertarikan pada desain antarmuka (UI),
+
+pengalaman pengguna (UX), serta pengembangan website.
+
+Saya senang mempelajari tren desain terbaru dan
+
+menciptakan solusi digital yang modern, responsif,
+
+dan mudah digunakan.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Tujuan Karier</h3>
+
+<p>
+
+Menjadi UI/UX Designer profesional yang mampu
+
+menghasilkan produk digital berkualitas,
+
+memberikan pengalaman terbaik bagi pengguna,
+
+serta berkontribusi dalam pengembangan teknologi.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="experience">
+
+<h2 class="title">Pengalaman Proyek</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Dashboard Design</h3>
+
+<p>
+
+Merancang tampilan dashboard modern menggunakan
+
+prinsip UI/UX yang berfokus pada kemudahan navigasi,
+
+visualisasi data yang jelas,
+
+serta pengalaman pengguna yang nyaman.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Website Design</h3>
+
+<p>
+
+Mendesain website responsif mulai dari
+
+wireframe, mockup hingga prototype.
+
+Mengutamakan desain yang sederhana,
+
+modern, cepat diakses,
+
+dan mudah dipahami pengguna.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Prototype</h3>
+
+<p>
+
+Membuat prototype interaktif untuk
+
+menguji alur pengguna,
+
+mengidentifikasi masalah usability,
+
+dan meningkatkan kualitas pengalaman pengguna.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="title">Keahlian</h2>
+
+<div class="card">
+
+<div class="skill">
+
+<p>UI Design</p>
+
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+
+</div>
+
+<div class="skill">
+
+<p>UX Research</p>
+
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+
+</div>
+
+<div class="skill">
+
+<p>HTML</p>
+
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+
+</div>
+
+<div class="skill">
+
+<p>CSS</p>
+
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+
+</div>
+
+<div class="skill">
+
+<p>JavaScript</p>
+
+<div class="bar"><div class="fill" style="width:75%"></div></div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Kontak</h2>
+
+<div class="card" style="text-align:center">
+
+<h3>Cut Nursilul</h3>
+
+<p>Email : emailanda@gmail.com</p>
+
+<p>WhatsApp : 08xxxxxxxxxx</p>
+
+<p>Instagram : @username</p>
+
+<p>GitHub : github.com/username</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Cut Nursilul | UI/UX Portfolio
+
+</footer>
+
 <script>
-function showMessage(){
-    document.getElementById("message").innerHTML =
-    "😊 Halo! Terima kasih telah mengunjungi profil digital Cut Nursilul.";
+
+const text="Cut Nursilul";
+
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(typing,120);
+
 }
+
+}
+
+typing();
+
 </script>
 
 </body>
+
 </html>
