@@ -10,7 +10,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
 <style>
 
 *{
@@ -25,7 +24,7 @@ html{
 }
 
 body{
-    background:#0f172a;
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
     color:white;
 }
 
@@ -40,16 +39,14 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(15,23,42,.8);
+    background:rgba(0,0,0,.25);
     backdrop-filter:blur(10px);
     z-index:1000;
 }
 
-
 .logo{
-    font-size:28px;
+    font-size:30px;
     font-weight:bold;
-    color:#38bdf8;
 }
 
 
@@ -71,9 +68,8 @@ nav ul li a{
 
 
 nav ul li a:hover{
-    color:#38bdf8;
+    color:#ffd54f;
 }
-
 
 
 /* HERO */
@@ -88,12 +84,11 @@ nav ul li a:hover{
 
     justify-content:center;
 
-    gap:50px;
+    gap:60px;
 
     padding:100px 8% 50px;
 
 }
-
 
 
 .hero img{
@@ -106,10 +101,11 @@ nav ul li a:hover{
 
     object-fit:cover;
 
-    border:6px solid #38bdf8;
+    border:6px solid white;
+
+    box-shadow:0 0 30px white;
 
 }
-
 
 
 .hero-text{
@@ -117,7 +113,6 @@ nav ul li a:hover{
     max-width:600px;
 
 }
-
 
 
 .hero-text h1{
@@ -129,7 +124,7 @@ nav ul li a:hover{
 
 .hero-text h2{
 
-    color:#38bdf8;
+    color:#ffd54f;
 
     margin:15px 0;
 
@@ -140,7 +135,7 @@ nav ul li a:hover{
 
     line-height:1.8;
 
-    color:#cbd5e1;
+    font-size:18px;
 
 }
 
@@ -152,17 +147,24 @@ nav ul li a:hover{
 
     margin-top:25px;
 
-    padding:14px 30px;
+    padding:14px 35px;
 
-    background:#38bdf8;
+    background:#ffd54f;
 
-    color:#0f172a;
-
-    text-decoration:none;
+    color:#333;
 
     border-radius:30px;
 
+    text-decoration:none;
+
     font-weight:bold;
+
+}
+
+
+.btn:hover{
+
+    background:white;
 
 }
 
@@ -182,9 +184,7 @@ section{
 
     text-align:center;
 
-    font-size:38px;
-
-    color:#38bdf8;
+    font-size:40px;
 
     margin-bottom:40px;
 
@@ -194,11 +194,13 @@ section{
 
 .card{
 
-    background:#1e293b;
+    background:rgba(255,255,255,.15);
 
     padding:30px;
 
     border-radius:20px;
+
+    backdrop-filter:blur(10px);
 
     line-height:1.8;
 
@@ -218,28 +220,83 @@ section{
 
 
 
+/* SKILL */
+
+
+.skill-box{
+
+    margin-top:20px;
+
+}
+
+
+.skill-name{
+
+    margin-bottom:5px;
+
+}
+
+
+.bar{
+
+    background:rgba(255,255,255,.3);
+
+    border-radius:20px;
+
+}
+
+
+
+.progress{
+
+    background:#ffd54f;
+
+    padding:8px;
+
+    border-radius:20px;
+
+    color:#333;
+
+    text-align:center;
+
+}
+
+
+
+/* RESPONSIVE */
+
+
 @media(max-width:768px){
 
 .hero{
 
-flex-direction:column;
+    flex-direction:column;
 
-text-align:center;
+    text-align:center;
 
 }
 
 
 .about{
 
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
 
 }
+
 
 .hero-text h1{
 
-font-size:40px;
+    font-size:40px;
 
 }
+
+
+nav{
+
+    flex-direction:column;
+
+}
+
 
 }
 
@@ -250,10 +307,11 @@ font-size:40px;
 </head>
 
 
-
 <body>
 
 
+
+<!-- NAVBAR -->
 
 <nav>
 
@@ -270,6 +328,8 @@ Cut Nursilul
 
 <li><a href="#skill">Skill</a></li>
 
+<li><a href="#portfolio">Portfolio</a></li>
+
 <li><a href="#contact">Kontak</a></li>
 
 </ul>
@@ -281,10 +341,12 @@ Cut Nursilul
 
 <!-- HERO -->
 
+
 <section class="hero" id="home">
 
 
-<img src="foto.jpg" alt="Foto Profil">
+<img src="foto.jpg" alt="Foto Cut Nursilul">
+
 
 
 <div class="hero-text">
@@ -300,11 +362,17 @@ Web Designer & Digital Creator
 </h2>
 
 
+
 <p>
-Halo, saya Cut Nursilul. Saya memiliki minat dalam
-teknologi, desain website, dan pengembangan digital.
-Saya senang membuat website yang menarik dan modern.
+
+Halo, saya Cut Nursilul.
+Saya memiliki minat dalam teknologi,
+desain website, UI/UX, dan pengembangan
+digital. Saya senang membuat karya kreatif
+yang bermanfaat.
+
 </p>
+
 
 
 <a href="#about" class="btn">
@@ -323,6 +391,7 @@ Lihat Profil
 
 <!-- TENTANG -->
 
+
 <section id="about">
 
 
@@ -331,19 +400,20 @@ Tentang Saya
 </h2>
 
 
-
 <div class="about">
 
 
 <div class="card">
 
-<h3>Profil</h3>
+<h3>👤 Profil</h3>
 
 <p>
-Saya adalah Cut Nursilul yang tertarik pada bidang
-teknologi, desain digital, dan pembuatan website.
-Saya terus belajar untuk meningkatkan kemampuan
-dalam dunia digital.
+
+Saya adalah Cut Nursilul yang tertarik
+dengan dunia teknologi dan desain digital.
+Saya selalu belajar hal baru untuk
+meningkatkan kemampuan.
+
 </p>
 
 </div>
@@ -352,12 +422,14 @@ dalam dunia digital.
 
 <div class="card">
 
-<h3>Tujuan</h3>
+<h3>🎯 Tujuan</h3>
 
 <p>
-Membuat desain website yang kreatif, menarik,
-mudah digunakan, dan memberikan pengalaman
-terbaik untuk pengguna.
+
+Membuat website yang memiliki tampilan
+modern, mudah digunakan, dan memberikan
+pengalaman terbaik bagi pengguna.
+
 </p>
 
 </div>
@@ -367,7 +439,6 @@ terbaik untuk pengguna.
 
 
 </section>
-
 
 
 
@@ -387,18 +458,18 @@ Pendidikan
 <div class="card">
 
 
-<h3>🎓 Pendidikan</h3>
-
 <p>
-• Pendidikan Dasar dan Menengah
+🎓 Pendidikan Dasar dan Menengah
 </p>
 
-<p>
-• Pembelajaran Teknologi Informasi
-</p>
 
 <p>
-• Pengembangan Website dan Desain Digital
+🎓 Pembelajaran Teknologi Informasi
+</p>
+
+
+<p>
+🎓 Pengembangan Website dan Desain Digital
 </p>
 
 
@@ -406,7 +477,6 @@ Pendidikan
 
 
 </section>
-
 
 
 
@@ -432,7 +502,7 @@ Pengalaman
 
 
 <p>
-✔ Mendesain tampilan menggunakan HTML dan CSS
+✔ Mendesain tampilan website HTML & CSS
 </p>
 
 
@@ -442,7 +512,7 @@ Pengalaman
 
 
 <p>
-✔ Membuat proyek website sederhana
+✔ Membuat proyek digital pribadi
 </p>
 
 
@@ -450,7 +520,6 @@ Pengalaman
 
 
 </section>
-
 
 
 
@@ -470,57 +539,60 @@ Skill
 <div class="card">
 
 
-<p>HTML</p>
+<div class="skill-box">
 
-<div style="background:#334155;border-radius:20px">
+<p class="skill-name">
+HTML
+</p>
 
-<div style="width:90%;background:#38bdf8;padding:10px;border-radius:20px">
+<div class="bar">
+
+<div class="progress" style="width:90%">
 90%
 </div>
 
 </div>
 
+</div>
 
-<br>
 
 
-<p>CSS</p>
 
-<div style="background:#334155;border-radius:20px">
+<div class="skill-box">
 
-<div style="width:85%;background:#38bdf8;padding:10px;border-radius:20px">
+<p class="skill-name">
+CSS
+</p>
+
+<div class="bar">
+
+<div class="progress" style="width:85%">
 85%
 </div>
 
 </div>
 
+</div>
 
-<br>
 
 
-<p>JavaScript</p>
 
-<div style="background:#334155;border-radius:20px">
+<div class="skill-box">
 
-<div style="width:70%;background:#38bdf8;padding:10px;border-radius:20px">
+<p class="skill-name">
+JavaScript
+</p>
+
+<div class="bar">
+
+<div class="progress" style="width:70%">
 70%
 </div>
 
 </div>
 
-
-<br>
-
-
-<p>UI/UX Design</p>
-
-<div style="background:#334155;border-radius:20px">
-
-<div style="width:80%;background:#38bdf8;padding:10px;border-radius:20px">
-80%
 </div>
 
-</div>
 
 
 </div>
@@ -528,13 +600,10 @@ Skill
 
 </section>
 
-
-</body>
-
-</html>
 <!-- PORTOFOLIO -->
 
 <section id="portfolio">
+
 
 <h2 class="title">
 Portofolio
@@ -549,8 +618,8 @@ Portofolio
 <h3>🌐 Website Profil Digital</h3>
 
 <p>
-Membuat website profil pribadi menggunakan
-HTML, CSS, dan JavaScript dengan tampilan modern.
+Membuat website profil pribadi dengan
+HTML, CSS, dan JavaScript.
 </p>
 
 </div>
@@ -559,11 +628,11 @@ HTML, CSS, dan JavaScript dengan tampilan modern.
 
 <div class="card">
 
-<h3>🎨 Desain UI/UX</h3>
+<h3>🎨 UI/UX Design</h3>
 
 <p>
-Membuat rancangan tampilan aplikasi dan website
-menggunakan prinsip desain yang menarik dan mudah digunakan.
+Membuat desain tampilan aplikasi dan website
+dengan konsep modern dan mudah digunakan.
 </p>
 
 </div>
@@ -572,17 +641,18 @@ menggunakan prinsip desain yang menarik dan mudah digunakan.
 
 <div class="card">
 
-<h3>💻 Project Web</h3>
+<h3>💻 Web Project</h3>
 
 <p>
-Mengembangkan proyek website sederhana untuk
-meningkatkan kemampuan coding.
+Mengembangkan proyek website sederhana
+untuk meningkatkan kemampuan coding.
 </p>
 
 </div>
 
 
 </div>
+
 
 </section>
 
@@ -592,7 +662,8 @@ meningkatkan kemampuan coding.
 
 <!-- SERTIFIKAT -->
 
-<section id="certificate">
+
+<section>
 
 
 <h2 class="title">
@@ -605,18 +676,22 @@ Sertifikat
 
 <h3>🏆 Sertifikat & Pencapaian</h3>
 
+
 <br>
 
+
 <p>
-✔ Sertifikat Dasar Web Development
+✔ Sertifikat Web Development Dasar
 </p>
+
 
 <p>
 ✔ Sertifikat Desain Digital
 </p>
 
+
 <p>
-✔ Sertifikat Pembelajaran Teknologi Informasi
+✔ Sertifikat Teknologi Informasi
 </p>
 
 
@@ -629,7 +704,10 @@ Sertifikat
 
 
 
+
+
 <!-- KONTAK -->
+
 
 <section id="contact">
 
@@ -639,12 +717,13 @@ Kontak Saya
 </h2>
 
 
+
 <div class="card">
 
 
 <p>
-📧 Email:
-cutnursilul230619@gmail.com
+📧 Email :
+cutnursilul@gmail.com
 </p>
 
 
@@ -652,8 +731,8 @@ cutnursilul230619@gmail.com
 
 
 <p>
-📱 WhatsApp:
-083835969176
+📱 WhatsApp :
+08xxxxxxxxxx
 </p>
 
 
@@ -661,8 +740,8 @@ cutnursilul230619@gmail.com
 
 
 <p>
-📷 Instagram:
-@ilulrs
+📷 Instagram :
+@cutnursilul
 </p>
 
 
@@ -670,8 +749,8 @@ cutnursilul230619@gmail.com
 
 
 <p>
-💻 GitHub:
-https://cutnursilul230619-netizen.github.io/profildigital2/
+💻 GitHub :
+github.com/cutnursilul230619-netizen
 </p>
 
 
@@ -680,6 +759,7 @@ https://cutnursilul230619-netizen.github.io/profildigital2/
 
 
 </section>
+
 
 
 
@@ -690,15 +770,24 @@ https://cutnursilul230619-netizen.github.io/profildigital2/
 
 
 <footer style="
-background:#020617;
+background:rgba(0,0,0,.3);
 padding:30px;
 text-align:center;
-margin-top:50px;
 ">
 
 
+<h3>
+Cut Nursilul
+</h3>
+
+
 <p>
-© 2026 Cut Nursilul | Digital Portfolio
+Digital Portfolio Website
+</p>
+
+
+<p>
+© 2026 All Rights Reserved
 </p>
 
 
@@ -708,21 +797,23 @@ margin-top:50px;
 
 
 
-<!-- TOMBOL KEMBALI KE ATAS -->
+
+<!-- TOMBOL KE ATAS -->
 
 
-<button onclick="topFunction()" 
-id="topBtn"
+<button id="topBtn"
+onclick="keAtas()"
 style="
 position:fixed;
 bottom:25px;
 right:25px;
-padding:12px 18px;
+width:45px;
+height:45px;
 border:none;
 border-radius:50%;
-background:#38bdf8;
-cursor:pointer;
+background:#ffd54f;
 font-size:20px;
+cursor:pointer;
 ">
 
 ↑
@@ -732,12 +823,12 @@ font-size:20px;
 
 
 
+
+
 <script>
 
 
-// Tombol kembali ke atas
-
-function topFunction(){
+function keAtas(){
 
 window.scrollTo({
 
@@ -751,13 +842,132 @@ behavior:"smooth"
 
 
 
-// Animasi saat halaman dibuka
-
-window.onload=function(){
-
 console.log(
-"Portfolio Cut Nursilul berhasil dibuka"
+"Website Portfolio Cut Nursilul Aktif"
 );
+
+
+</script>
+
+
+
+</body>
+
+</html>
+<!-- BAGIAN 3 TAMBAHAN -->
+
+<style>
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* Tombol tema */
+
+#themeBtn{
+    position:fixed;
+    bottom:80px;
+    right:25px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    cursor:pointer;
+    font-size:20px;
+}
+
+
+.light-mode{
+    background:#f1f5f9;
+    color:#111827;
+}
+
+
+.light-mode .card{
+    background:white;
+    color:#111;
+}
+
+
+</style>
+
+
+
+<button id="themeBtn">
+🌙
+</button>
+
+
+
+<script>
+
+
+// Animasi muncul saat scroll
+
+const cards = document.querySelectorAll(
+".card"
+);
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+cards.forEach(card=>{
+
+let posisi =
+card.getBoundingClientRect().top;
+
+
+if(posisi < window.innerHeight - 100){
+
+card.classList.add("fade");
+
+setTimeout(()=>{
+
+card.classList.add("show");
+
+},100);
+
+}
+
+});
+
+});
+
+
+
+// Mode gelap terang
+
+const tombol =
+document.getElementById("themeBtn");
+
+
+tombol.onclick=function(){
+
+document.body.classList.toggle(
+"light-mode"
+);
+
+
+if(document.body.classList.contains("light-mode")){
+
+tombol.innerHTML="☀️";
+
+}else{
+
+tombol.innerHTML="🌙";
+
+}
 
 };
 
