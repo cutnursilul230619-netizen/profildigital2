@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Portfolio Digital - Cut Nursilul</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 
 <style>
 
@@ -42,9 +45,10 @@ nav{
     z-index:1000;
 }
 
+
 .logo{
     font-size:28px;
-    font-weight:700;
+    font-weight:bold;
     color:#38bdf8;
 }
 
@@ -56,14 +60,13 @@ nav ul{
 
 
 nav ul li{
-    margin-left:30px;
+    margin-left:25px;
 }
 
 
 nav ul li a{
-    text-decoration:none;
     color:white;
-    font-weight:500;
+    text-decoration:none;
 }
 
 
@@ -72,37 +75,41 @@ nav ul li a:hover{
 }
 
 
-/* HERO */
 
+/* HERO */
 
 .hero{
 
     min-height:100vh;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    padding:100px 8% 50px;
+    gap:50px;
 
-    gap:60px;
+    padding:100px 8% 50px;
 
 }
 
 
+
 .hero img{
 
-    width:300px;
-    height:300px;
+    width:280px;
+
+    height:280px;
 
     border-radius:50%;
 
     object-fit:cover;
 
-    border:8px solid #38bdf8;
-
-    box-shadow:0 0 40px #38bdf8;
+    border:6px solid #38bdf8;
 
 }
+
 
 
 .hero-text{
@@ -112,9 +119,10 @@ nav ul li a:hover{
 }
 
 
+
 .hero-text h1{
 
-    font-size:60px;
+    font-size:55px;
 
 }
 
@@ -137,13 +145,14 @@ nav ul li a:hover{
 }
 
 
+
 .btn{
 
     display:inline-block;
 
-    margin-top:30px;
+    margin-top:25px;
 
-    padding:15px 35px;
+    padding:14px 30px;
 
     background:#38bdf8;
 
@@ -157,12 +166,6 @@ nav ul li a:hover{
 
 }
 
-
-.btn:hover{
-
-    background:white;
-
-}
 
 
 /* SECTION */
@@ -179,13 +182,14 @@ section{
 
     text-align:center;
 
-    font-size:40px;
-
-    margin-bottom:40px;
+    font-size:38px;
 
     color:#38bdf8;
 
+    margin-bottom:40px;
+
 }
+
 
 
 .card{
@@ -196,12 +200,10 @@ section{
 
     border-radius:20px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    line-height:1.8;
 
 }
 
-
-/* ABOUT */
 
 
 .about{
@@ -215,19 +217,42 @@ section{
 }
 
 
-.about p{
 
-    line-height:1.8;
+@media(max-width:768px){
 
-    color:#cbd5e1;
+.hero{
+
+flex-direction:column;
+
+text-align:center;
 
 }
+
+
+.about{
+
+grid-template-columns:1fr;
+
+}
+
+.hero-text h1{
+
+font-size:40px;
+
+}
+
+}
+
+
 
 </style>
 
 </head>
 
+
+
 <body>
+
 
 
 <nav>
@@ -252,24 +277,33 @@ Cut Nursilul
 </nav>
 
 
+
+
+<!-- HERO -->
+
 <section class="hero" id="home">
 
 
-<img src="foto.jpg" alt="Foto Cut Nursilul">
+<img src="foto.jpg" alt="Foto Profil">
 
 
 <div class="hero-text">
 
-<h1>Cut Nursilul</h1>
 
-<h2>Web Designer & Digital Creator</h2>
+<h1>
+Cut Nursilul
+</h1>
+
+
+<h2>
+Web Designer & Digital Creator
+</h2>
 
 
 <p>
 Halo, saya Cut Nursilul. Saya memiliki minat dalam
 teknologi, desain website, dan pengembangan digital.
-Saya senang membuat tampilan website yang menarik,
-modern, dan mudah digunakan.
+Saya senang membuat website yang menarik dan modern.
 </p>
 
 
@@ -282,3 +316,219 @@ Lihat Profil
 
 
 </section>
+
+
+
+
+
+<!-- TENTANG -->
+
+<section id="about">
+
+
+<h2 class="title">
+Tentang Saya
+</h2>
+
+
+
+<div class="about">
+
+
+<div class="card">
+
+<h3>Profil</h3>
+
+<p>
+Saya adalah Cut Nursilul yang tertarik pada bidang
+teknologi, desain digital, dan pembuatan website.
+Saya terus belajar untuk meningkatkan kemampuan
+dalam dunia digital.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Tujuan</h3>
+
+<p>
+Membuat desain website yang kreatif, menarik,
+mudah digunakan, dan memberikan pengalaman
+terbaik untuk pengguna.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- PENDIDIKAN -->
+
+
+<section>
+
+
+<h2 class="title">
+Pendidikan
+</h2>
+
+
+<div class="card">
+
+
+<h3>🎓 Pendidikan</h3>
+
+<p>
+• Pendidikan Dasar dan Menengah
+</p>
+
+<p>
+• Pembelajaran Teknologi Informasi
+</p>
+
+<p>
+• Pengembangan Website dan Desain Digital
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- PENGALAMAN -->
+
+
+<section>
+
+
+<h2 class="title">
+Pengalaman
+</h2>
+
+
+<div class="card">
+
+
+<p>
+✔ Membuat website profil digital
+</p>
+
+
+<p>
+✔ Mendesain tampilan menggunakan HTML dan CSS
+</p>
+
+
+<p>
+✔ Belajar UI/UX Design
+</p>
+
+
+<p>
+✔ Membuat proyek website sederhana
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- SKILL -->
+
+
+<section id="skill">
+
+
+<h2 class="title">
+Skill
+</h2>
+
+
+<div class="card">
+
+
+<p>HTML</p>
+
+<div style="background:#334155;border-radius:20px">
+
+<div style="width:90%;background:#38bdf8;padding:10px;border-radius:20px">
+90%
+</div>
+
+</div>
+
+
+<br>
+
+
+<p>CSS</p>
+
+<div style="background:#334155;border-radius:20px">
+
+<div style="width:85%;background:#38bdf8;padding:10px;border-radius:20px">
+85%
+</div>
+
+</div>
+
+
+<br>
+
+
+<p>JavaScript</p>
+
+<div style="background:#334155;border-radius:20px">
+
+<div style="width:70%;background:#38bdf8;padding:10px;border-radius:20px">
+70%
+</div>
+
+</div>
+
+
+<br>
+
+
+<p>UI/UX Design</p>
+
+<div style="background:#334155;border-radius:20px">
+
+<div style="width:80%;background:#38bdf8;padding:10px;border-radius:20px">
+80%
+</div>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+</body>
+
+</html>
