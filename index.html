@@ -10,70 +10,461 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
 <style>
-  /* =========================
-   PROFILE & BIODATA
+
+/* =========================
+   DASAR
 ========================= */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,0,60,.25),transparent 30%),
+    radial-gradient(circle at 80% 30%,rgba(0,180,255,.25),transparent 30%),
+    linear-gradient(135deg,#030308,#0b1020,#150006);
+
+    background-attachment:fixed;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BINTANG / PARTIKEL
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background-image:
+    radial-gradient(circle,rgba(255,255,255,.7) 1px,transparent 1px);
+
+    background-size:45px 45px;
+    opacity:.15;
+
+    animation:stars 15s linear infinite;
+
+    z-index:-5;
+}
+
+@keyframes stars{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(45px);
+    }
+
+}
+
+/* =========================
+   JARING LABA-LABA
+========================= */
+
+.web{
+    position:fixed;
+    width:350px;
+    height:350px;
+
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50%;
+
+    pointer-events:none;
+    z-index:-2;
+}
+
+.web::before,
+.web::after{
+    content:"";
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    width:100%;
+    height:1px;
+
+    background:rgba(255,255,255,.12);
+
+    transform:translate(-50%,-50%);
+}
+
+.web::after{
+    transform:translate(-50%,-50%) rotate(90deg);
+}
+
+.web1{
+    top:100px;
+    left:-150px;
+
+    animation:spinWeb 20s linear infinite;
+}
+
+.web2{
+    bottom:-150px;
+    right:-150px;
+
+    animation:spinWeb 25s linear infinite reverse;
+}
+
+@keyframes spinWeb{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+
+    padding:18px 6%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(3,3,8,.78);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,23,68,.4);
+
+    box-shadow:
+    0 0 25px rgba(255,0,60,.2);
+
+    z-index:1000;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:bold;
+
+    color:white;
+
+    text-shadow:
+    0 0 8px #ff1744,
+    0 0 20px #ff1744;
+
+    animation:logoGlow 2s infinite alternate;
+}
+
+@keyframes logoGlow{
+
+    from{
+        text-shadow:0 0 5px #ff1744;
+    }
+
+    to{
+        text-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #ff1744;
+    }
+
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+
+    transition:.3s;
+
+    position:relative;
+}
+
+nav ul li a:hover{
+    color:#ff1744;
+
+    text-shadow:
+    0 0 8px #ff1744,
+    0 0 15px #ff1744;
+
+    transform:translateY(-2px);
+}
+
+/* warna menu project */
+
+nav ul li a[href*="toko-online"],
+nav ul li a[href*="mila-dashboard"],
+nav ul li a[href*="academic-meet"]{
+    color:#00e5ff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:60px;
+
+    padding:120px 8% 60px;
+
+}
+
+.hero img{
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #ff1744;
+
+    box-shadow:
+    0 0 10px #ff1744,
+    0 0 30px #ff1744,
+    0 0 70px rgba(255,23,68,.5);
+
+    animation:heroFloat 4s ease-in-out infinite;
+
+}
+
+@keyframes heroFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero-text h1{
+
+    font-size:55px;
+
+    text-shadow:
+    0 0 10px #ff1744,
+    0 0 30px rgba(255,23,68,.6);
+
+}
+
+.hero-text h2{
+
+    color:#ff1744;
+
+    margin:15px 0;
+
+}
+
+.hero-text p{
+
+    font-size:18px;
+    line-height:1.8;
+
+    color:#d8e7ff;
+
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:14px 35px;
+
+    background:#ff1744;
+
+    color:white;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 0 10px #ff1744,
+    0 0 30px rgba(255,23,68,.4);
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:#ff4d6d;
+
+    transform:scale(1.06);
+
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    padding:90px 8%;
+}
+
+.title{
+
+    text-align:center;
+
+    font-size:40px;
+
+    margin-bottom:40px;
+
+    color:white;
+
+    text-shadow:
+    0 0 10px #ff1744;
+
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card,
+.profile-card,
+.biodata-card,
+.portfolio-card{
+
+    background:rgba(255,255,255,.08);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,23,68,.25);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 0 20px rgba(255,23,68,.08),
+    inset 0 0 20px rgba(255,255,255,.02);
+
+    transition:.4s;
+
+}
+
+.card:hover,
+.profile-card:hover,
+.biodata-card:hover,
+.portfolio-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#ff1744;
+
+    box-shadow:
+    0 0 15px rgba(255,23,68,.4),
+    0 0 40px rgba(255,23,68,.15);
+
+}
+
+/* =========================
+   TENTANG
+========================= */
 
 .about-container{
 
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:30px;
 
 }
 
-
-
-.profile-card,
-.biodata-card{
-
-    background:rgba(255,255,255,.15);
-    padding:35px;
-    border-radius:25px;
-    backdrop-filter:blur(12px);
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
-
-}
-
-
-
 .profile-card{
-
     text-align:center;
-
 }
-
-
 
 .profile-icon{
 
     font-size:70px;
+
     margin-bottom:15px;
+
+    animation:floatIcon 3s ease-in-out infinite;
 
 }
 
+@keyframes floatIcon{
 
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
 
 .profile-card h2{
 
     font-size:35px;
+
     margin-bottom:10px;
 
 }
 
-
-
 .profile-card h3{
 
-    color:#ffd54f;
+    color:#ff1744;
+
     margin-bottom:20px;
 
 }
-
-
 
 .profile-card p{
 
@@ -81,87 +472,63 @@
 
 }
 
-
-
-
 .biodata-card h2{
 
     text-align:center;
+
     margin-bottom:20px;
 
 }
 
-
-
 .biodata-card p{
 
-    background:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.08);
+
     padding:12px;
+
     border-radius:15px;
+
     margin-bottom:12px;
+
     transition:.3s;
 
 }
 
-
-
 .biodata-card p:hover{
 
-    background:rgba(255,255,255,.25);
+    background:rgba(255,23,68,.15);
+
     transform:translateX(5px);
 
 }
 
-
-
-
-
 /* =========================
-   PENDIDIKAN TIMELINE
+   PENDIDIKAN
 ========================= */
-
 
 .timeline{
 
     display:grid;
+
     gap:25px;
 
 }
 
-
-
 .timeline-box{
 
-    border-left:7px solid #ffd54f;
-    transition:.3s;
+    border-left:7px solid #ff1744;
 
 }
-
-
 
 .timeline-box:hover{
 
     transform:translateX(10px);
-    background:rgba(255,255,255,.25);
 
 }
-
-
-
-.timeline-box h3{
-
-    margin-bottom:15px;
-
-}
-
-
-
-
 
 /* =========================
    SKILL
 ========================= */
-
 
 .skill-box{
 
@@ -169,504 +536,344 @@
 
 }
 
-
-
 .skill-name{
 
     margin-bottom:8px;
+
     font-weight:bold;
 
 }
 
-
-
 .bar{
 
-    background:rgba(255,255,255,.3);
+    background:rgba(255,255,255,.15);
+
     border-radius:20px;
+
     overflow:hidden;
 
 }
 
-
-
 .progress{
 
-    background:#ffd54f;
-    color:#333;
+    background:linear-gradient(
+        90deg,
+        #ff1744,
+        #ff4d6d,
+        #00e5ff
+    );
+
+    color:white;
+
     padding:8px;
+
     border-radius:20px;
+
     text-align:center;
+
     font-weight:bold;
+
+    box-shadow:
+    0 0 15px rgba(255,23,68,.5);
 
 }
 
-
-
-
-
 /* =========================
-   PORTFOLIO CARD
+   PORTFOLIO
 ========================= */
-
 
 .portfolio-container{
 
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:25px;
 
 }
 
-
-
-.portfolio-card{
-
-    background:rgba(255,255,255,.15);
-    padding:30px;
-    border-radius:20px;
-    transition:.3s;
-
-}
-
-
-
-.portfolio-card:hover{
-
-    transform:translateY(-10px);
-    background:rgba(255,255,255,.25);
-
-}
-
-
-
 .portfolio-card h3{
 
-    color:#ffd54f;
+    color:#00e5ff;
+
     margin-bottom:15px;
 
 }
 
-
-
-
-
 /* =========================
-   ANIMASI SCROLL
+   ANIMASI
 ========================= */
-
 
 .fade{
 
     opacity:0;
+
     transform:translateY(40px);
+
     transition:1s;
 
 }
 
-
-
 .fade.show{
 
     opacity:1;
+
     transform:translateY(0);
 
 }
 
-
-
-
-
 /* =========================
-   MODE TERANG
+   TOMBOL ATAS
 ========================= */
 
+#topBtn{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ff1744;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    box-shadow:0 0 20px #ff1744;
+
+    transition:.3s;
+
+}
+
+#topBtn:hover{
+
+    transform:scale(1.15);
+
+}
+
+/* =========================
+   MODE TEMA
+========================= */
 
 #themeBtn{
 
     position:fixed;
+
     bottom:80px;
+
     right:25px;
+
     width:45px;
+
     height:45px;
+
     border:none;
+
     border-radius:50%;
+
     background:white;
-    cursor:pointer;
+
     font-size:20px;
-    z-index:1000;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    box-shadow:0 0 15px white;
 
 }
 
-
+/* =========================
+   LIGHT MODE
+========================= */
 
 .light-mode{
 
-    background:#f1f5f9;
+    background:
+    linear-gradient(135deg,#e0f2fe,#f8fafc);
+
     color:#111827;
 
 }
-
-
 
 .light-mode .card,
 .light-mode .profile-card,
 .light-mode .biodata-card,
 .light-mode .portfolio-card{
 
-    background:white;
+    background:rgba(255,255,255,.8);
+
     color:#111;
 
 }
-
-
-
-
 
 /* =========================
    RESPONSIVE
 ========================= */
 
+@media(max-width:900px){
+
+    nav{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+    nav ul li{
+
+        margin:5px 8px;
+
+    }
+
+}
 
 @media(max-width:768px){
 
+    .hero{
 
-.about-container{
+        flex-direction:column;
 
-    grid-template-columns:1fr;
+        text-align:center;
 
-}
+    }
 
+    .hero img{
 
+        width:220px;
 
-.portfolio-container{
+        height:220px;
 
-    grid-template-columns:1fr;
+    }
 
-}
+    .hero-text h1{
 
+        font-size:40px;
 
-.biodata-card p{
+    }
 
-    font-size:14px;
+    .about-container{
 
-}
+        grid-template-columns:1fr;
 
+    }
 
-}
+    .portfolio-container{
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+        grid-template-columns:1fr;
 
+    }
 
-html{
-scroll-behavior:smooth;
-}
+    .title{
 
+        font-size:32px;
 
-body{
-
-background:linear-gradient(135deg,#6a11cb,#2575fc);
-color:white;
+    }
 
 }
-
-
-
-nav{
-
-position:fixed;
-top:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,.25);
-backdrop-filter:blur(10px);
-z-index:1000;
-
-}
-
-
-
-.logo{
-
-font-size:30px;
-font-weight:bold;
-
-}
-
-
-
-nav ul{
-
-display:flex;
-list-style:none;
-
-}
-
-
-
-nav ul li{
-
-margin-left:25px;
-
-}
-
-
-
-nav ul li a{
-
-color:white;
-text-decoration:none;
-
-}
-
-
-
-nav ul li a:hover{
-
-color:#ffd54f;
-
-}
-
-
-
-
-
-/* HERO */
-
-
-.hero{
-
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:60px;
-padding:100px 8% 50px;
-
-}
-
-
-
-.hero img{
-
-width:280px;
-height:280px;
-border-radius:50%;
-object-fit:cover;
-border:6px solid white;
-box-shadow:0 0 30px white;
-
-}
-
-
-
-.hero-text{
-
-max-width:600px;
-
-}
-
-
-
-.hero-text h1{
-
-font-size:55px;
-
-}
-
-
-
-.hero-text h2{
-
-color:#ffd54f;
-margin:15px 0;
-
-}
-
-
-
-.hero-text p{
-
-font-size:18px;
-line-height:1.8;
-
-}
-
-
-
-.btn{
-
-display:inline-block;
-margin-top:25px;
-padding:14px 35px;
-background:#ffd54f;
-color:#333;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-
-}
-
-
-
-.btn:hover{
-
-background:white;
-
-}
-
-
-
-
-
-/* SECTION */
-
-
-section{
-
-padding:80px 8%;
-
-}
-
-
-
-.title{
-
-text-align:center;
-font-size:40px;
-margin-bottom:40px;
-
-}
-
-
-
-.card{
-
-background:rgba(255,255,255,.15);
-padding:30px;
-border-radius:20px;
-backdrop-filter:blur(10px);
-line-height:1.8;
-
-}
-
-
-
-
-
-/* RESPONSIVE */
-
-
-@media(max-width:768px){
-
-
-.hero{
-
-flex-direction:column;
-text-align:center;
-
-}
-
-
-
-nav{
-
-flex-direction:column;
-
-}
-
-
-.hero-text h1{
-
-font-size:40px;
-
-}
-
-
-}
-
-
 
 </style>
 
 </head>
 
-
-
 <body>
 
+<!-- JARING LABA-LABA -->
 
-<!-- NAVBAR -->
+<div class="web web1"></div>
+<div class="web web2"></div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav>
 
-
 <div class="logo">
-Cut Nursilul
+🕷️ Cut Nursilul
 </div>
-
 
 <ul>
 
-<li><a href="#home">Home</a></li>
+<li>
+<a href="#home">Home</a>
+</li>
 
-<li><a href="#about">Tentang</a></li>
+<li>
+<a href="#about">Tentang</a>
+</li>
 
-<li><a href="#education">Pendidikan</a></li>
+<li>
+<a href="#education">Pendidikan</a>
+</li>
 
-<li><a href="#skill">Skill</a></li>
+<li>
+<a href="#skill">Skill</a>
+</li>
 
-<li><a href="#portfolio">Portfolio</a></li>
-  
-<li><a href="https://cutnursilul230619-netizen.github.io/toko-online/" target="_blank">
-        🛒 Toko Online</a></li>
-  <a href="https://cutnursilul230619-netizen.github.io/mila-dashboard/" target="_blank">
-  📊 Mila</a></li>
-  <a href="https://cutnursilul230619-netizen.github.io/academic-meet/" target="_blank">
-  📚 Academic Meet</a></li>
+<li>
+<a href="#portfolio">Portfolio</a>
+</li>
 
-<li><a href="#contact">Kontak</a></li>
+<li>
+<a href="https://cutnursilul230619-netizen.github.io/toko-online/" target="_blank">
+🛒 Toko Online
+</a>
+</li>
 
+<li>
+<a href="https://cutnursilul230619-netizen.github.io/mila-dashboard/" target="_blank">
+📊 Mila
+</a>
+</li>
+
+<li>
+<a href="https://cutnursilul230619-netizen.github.io/academic-meet/" target="_blank">
+📚 Academic Meet
+</a>
+</li>
+
+<li>
+<a href="#contact">Kontak</a>
+</li>
 
 </ul>
-
 
 </nav>
 
 
-
-
-
-<!-- HERO -->
-
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="home">
 
-  <img src="cut jpg" alt="Foto Cut Nursilul">
-
-
+<img src="cut jpg" alt="Foto Cut Nursilul">
 
 <div class="hero-text">
-
 
 <h1>
 Cut Nursilul
 </h1>
 
-
 <h2>
 Web Designer & Digital Creator
 </h2>
-
-
 
 <p>
 
@@ -678,55 +885,40 @@ yang bermanfaat.
 
 </p>
 
-
-
 <a href="#about" class="btn">
 Lihat Profil
 </a>
 
-
-
 </div>
 
-
 </section>
-  <!-- =========================
-     TENTANG SAYA
+
+
+<!-- =========================
+     TENTANG
 ========================= -->
 
 <section id="about">
-
 
 <h2 class="title">
 Tentang Saya
 </h2>
 
-
-
 <div class="about-container">
 
-
-
 <div class="profile-card">
-
 
 <div class="profile-icon">
 👩‍💻
 </div>
 
-
-
 <h2>
 Cut Nursilul
 </h2>
 
-
-
 <h3>
 Web Designer & Digital Creator
 </h3>
-
-
 
 <p>
 
@@ -740,262 +932,171 @@ website yang modern, menarik, dan mudah digunakan.
 
 </p>
 
-
-
 </div>
-
-
-
-
-
 
 
 <div class="biodata-card">
 
-
 <h2>
 ✨ Biodata Lengkap
 </h2>
-
-
 
 <p>
 👤 <b>Nama Lengkap:</b><br>
 Cut Nursilul
 </p>
 
-
-
 <p>
 🎂 <b>Tempat, Tanggal Lahir:</b><br>
-(Desa Kulu,12-10-2004)
+Desa Kulu, 12-10-2004
 </p>
-
-
 
 <p>
 🏠 <b>Alamat:</b><br>
-(Desa Kulu)
+Desa Kulu
 </p>
-
-
 
 <p>
 📍 <b>Domisili:</b><br>
-(PIDIE)
+PIDIE
 </p>
-
-
 
 <p>
 🎓 <b>Status:</b><br>
- Mahasiswa
+Mahasiswa
 </p>
-
-
 
 <p>
 📧 <b>Email:</b><br>
 cutnursilul230619@gmail.com
 </p>
 
-
-
 <p>
 📱 <b>WhatsApp:</b><br>
 083835969176
 </p>
-
-
 
 <p>
 📷 <b>Instagram:</b><br>
 @ilulrs
 </p>
 
-
-
 </div>
 
-
-
 </div>
-
 
 </section>
 
 
-
-
-
-
-
 <!-- =========================
-     TUJUAN & MOTIVASI
+     TUJUAN
 ========================= -->
 
-
 <section>
-
 
 <h2 class="title">
 Tujuan & Motivasi
 </h2>
 
-
-
 <div class="card">
 
-
 <p>
-
 🎯 Saya ingin terus meningkatkan kemampuan
 di bidang teknologi informasi, khususnya
 web development dan desain UI/UX.
-
 </p>
-
-
 
 <br>
 
-
-
 <p>
-
 🚀 Saya memiliki tujuan untuk menciptakan
 karya digital yang kreatif, inovatif, dan
 bermanfaat bagi banyak orang.
-
 </p>
-
-
 
 <br>
 
-
-
 <p>
-
 💡 Saya percaya bahwa belajar teknologi secara
 terus-menerus dapat membantu menghasilkan
 solusi digital yang lebih baik.
-
 </p>
 
-
 </div>
-
 
 </section>
 
 
-
-
-
-
-
 <!-- =========================
-     RIWAYAT PENDIDIKAN
+     PENDIDIKAN
 ========================= -->
 
-
 <section id="education">
-
 
 <h2 class="title">
 Riwayat Pendidikan
 </h2>
 
-
-
-
 <div class="timeline">
 
-
-
-
-
 <div class="card timeline-box">
-
 
 <h3>
 🎒 Sekolah Dasar (SD)
 </h3>
 
-
 <p>
 <b>Nama Sekolah:</b><br>
-(SD NEGERI 1 ANDEUE)
+SD NEGERI 1 ANDEUE
 </p>
-
 
 <p>
 <b>Tahun Pendidikan:</b><br>
-(2010 - 2016)
+2010 - 2016
 </p>
-
 
 </div>
 
 
-
-
-
-
-
 <div class="card timeline-box">
-
 
 <h3>
 📚 Sekolah Menengah Pertama (SMP)
 </h3>
 
-
 <p>
 <b>Nama Sekolah:</b><br>
-(SMP NEGERI 2 MILA)
+SMP NEGERI 2 MILA
 </p>
-
 
 <p>
 <b>Tahun Pendidikan:</b><br>
-(2016 - 2019)
+2016 - 2019
 </p>
 
-
 </div>
-
-
-
-
-
 
 
 <div class="card timeline-box">
 
-
 <h3>
-🎓 SMA 
+🎓 SMA
 </h3>
-
 
 <p>
 <b>Nama Sekolah:</b><br>
-(SMA NEGERI 1 MILA)
+SMA NEGERI 1 MILA
 </p>
-  
 
 <p>
 <b>Tahun Pendidikan:</b><br>
-(2019 - 2021)
+2019 - 2021
 </p>
-
 
 </div>
 
 
-  <div class="card timeline-box">
+<div class="card timeline-box">
 
 <h3>
 🎓 Perguruan Tinggi
@@ -1003,27 +1104,27 @@ Riwayat Pendidikan
 
 <p>
 <b>Nama Perguruan Tinggi:</b><br>
-(Universitas Jabal Ghafur)
+Universitas Jabal Ghafur
 </p>
 
 <p>
 <b>Fakultas:</b><br>
-(Fakultas Teknik)
+Fakultas Teknik
 </p>
 
 <p>
 <b>Program Studi:</b><br>
-(Teknik Informatika)
+Teknik Informatika
 </p>
 
 <p>
 <b>Jenjang:</b><br>
-Diploma Sarjana (S1)
+S1
 </p>
 
 <p>
 <b>Tahun Masuk:</b><br>
-( 2023 / 2027)
+2023 / 2027
 </p>
 
 <p>
@@ -1033,117 +1134,86 @@ Mahasiswa Aktif
 
 </div>
 
+<div class="card">
 
 <h3>
 💻 Pembelajaran Tambahan
 </h3>
 
-
-<p>
-✔ Web Development
-</p>
-
-
-<p>
-✔ HTML & CSS
-</p>
-
-
-<p>
-✔ JavaScript
-</p>
-
-
-<p>
-✔ UI/UX Design
-</p>
-
+<p>✔ Web Development</p>
+<p>✔ HTML & CSS</p>
+<p>✔ JavaScript</p>
+<p>✔ UI/UX Design</p>
 
 </div>
 
-
-
-
 </div>
-
 
 </section>
-
-
-
-
-
 
 
 <!-- =========================
      PENGALAMAN
 ========================= -->
 
-
 <section>
-
 
 <h2 class="title">
 Pengalaman
 </h2>
 
-
-
-
 <div class="card">
-
 
 <p>
 🌐 Membuat website profil pribadi menggunakan HTML, CSS, dan JavaScript.
 </p>
 
+<br>
 
 <p>
 🎨 Mendesain tampilan website dengan konsep modern dan responsif.
 </p>
 
+<br>
 
 <p>
 💻 Membuat proyek digital sederhana untuk meningkatkan kemampuan coding.
 </p>
 
+<br>
 
 <p>
 📱 Mempelajari desain antarmuka aplikasi dan website.
 </p>
 
+<br>
 
 <p>
 🚀 Mengembangkan kreativitas dalam bidang teknologi digital.
 </p>
 
-
 </div>
 
-
 </section>
-  <!-- =========================
+
+
+<!-- =========================
      SKILL
 ========================= -->
 
 <section id="skill">
 
-
 <h2 class="title">
 Skill
 </h2>
 
-
-
 <div class="card">
-
 
 <div class="skill-box">
 
 <p class="skill-name">
 HTML
 </p>
-
 
 <div class="bar">
 
@@ -1153,11 +1223,7 @@ HTML
 
 </div>
 
-
 </div>
-
-
-
 
 
 <div class="skill-box">
@@ -1165,7 +1231,6 @@ HTML
 <p class="skill-name">
 CSS
 </p>
-
 
 <div class="bar">
 
@@ -1175,11 +1240,7 @@ CSS
 
 </div>
 
-
 </div>
-
-
-
 
 
 <div class="skill-box">
@@ -1187,7 +1248,6 @@ CSS
 <p class="skill-name">
 JavaScript
 </p>
-
 
 <div class="bar">
 
@@ -1197,11 +1257,7 @@ JavaScript
 
 </div>
 
-
 </div>
-
-
-
 
 
 <div class="skill-box">
@@ -1209,7 +1265,6 @@ JavaScript
 <p class="skill-name">
 UI/UX Design
 </p>
-
 
 <div class="bar">
 
@@ -1219,43 +1274,24 @@ UI/UX Design
 
 </div>
 
-
 </div>
 
-
-
 </div>
-
 
 </section>
-
-
-
-
-
-
 
 
 <!-- =========================
      PORTFOLIO
 ========================= -->
 
-
 <section id="portfolio">
-
 
 <h2 class="title">
 Portfolio
 </h2>
 
-
-
-
 <div class="portfolio-container">
-
-
-
-
 
 <div class="portfolio-card">
 
@@ -1263,22 +1299,13 @@ Portfolio
 🌐 Website Profil Digital
 </h3>
 
-
 <p>
-
 Membuat website profil pribadi menggunakan
 HTML, CSS, dan JavaScript dengan tampilan
 modern dan responsif.
-
 </p>
 
-
 </div>
-
-
-
-
-
 
 
 <div class="portfolio-card">
@@ -1287,22 +1314,13 @@ modern dan responsif.
 🎨 UI/UX Design
 </h3>
 
-
 <p>
-
 Membuat konsep desain tampilan aplikasi
 dan website yang menarik serta mudah
 digunakan oleh pengguna.
-
 </p>
 
-
 </div>
-
-
-
-
-
 
 
 <div class="portfolio-card">
@@ -1311,369 +1329,211 @@ digunakan oleh pengguna.
 💻 Web Project
 </h3>
 
-
 <p>
-
 Mengembangkan proyek website sederhana
 untuk meningkatkan kemampuan coding
 dan kreativitas digital.
-
 </p>
 
-
 </div>
 
-
-
-
 </div>
-
 
 </section>
-
-
-
-
-
-
 
 
 <!-- =========================
      SERTIFIKAT
 ========================= -->
 
-
 <section>
-
 
 <h2 class="title">
 Sertifikat & Pencapaian
 </h2>
 
-
-
-
 <div class="card">
 
+<p>🏆 Sertifikat Web Development Dasar</p>
 
-<p>
-🏆 Sertifikat Web Development Dasar
-</p>
+<br>
 
+<p>🏆 Sertifikat Desain Digital</p>
 
-<p>
-🏆 Sertifikat Desain Digital
-</p>
+<br>
 
+<p>🏆 Sertifikat Teknologi Informasi</p>
 
-<p>
-🏆 Sertifikat Teknologi Informasi
-</p>
+<br>
 
-
-<p>
-🏆 Pengembangan Proyek Website Pribadi
-</p>
-
+<p>🏆 Pengembangan Proyek Website Pribadi</p>
 
 </div>
 
-
 </section>
-
-
-
-
-
-
 
 
 <!-- =========================
      KONTAK
 ========================= -->
 
-
 <section id="contact">
-
 
 <h2 class="title">
 Kontak Saya
 </h2>
 
-
-
-
 <div class="card">
-
 
 <p>
 📧 <b>Email:</b><br>
 cutnursilul230619@gmail.com
 </p>
 
-
 <br>
-
 
 <p>
 📱 <b>WhatsApp:</b><br>
 083835969176
 </p>
 
-
 <br>
-
 
 <p>
 📷 <b>Instagram:</b><br>
 @ilulrs
 </p>
 
-
 <br>
 
-
 <p>
-💻 <b>GitHub:</b><br>
-https://cutnursilul230619-netizen.github.io/profildigital2/
+💻 <b>Website:</b><br>
+cutnursilul230619-netizen.github.io
 </p>
-
-
 
 </div>
 
-
 </section>
-
-
-
-
-
-
 
 
 <!-- =========================
      FOOTER
 ========================= -->
 
-
 <footer style="
-background:rgba(0,0,0,.3);
-padding:30px;
+background:rgba(0,0,0,.5);
+padding:35px;
 text-align:center;
+border-top:1px solid rgba(255,23,68,.4);
 ">
 
-
 <h3>
-Cut Nursilul
+🕷️ Cut Nursilul
 </h3>
-
 
 <p>
 Digital Portfolio Website
 </p>
 
-
 <p>
 © 2026 All Rights Reserved
 </p>
 
-
 </footer>
-
-
-
-
-
-
 
 
 <!-- =========================
      TOMBOL ATAS
 ========================= -->
 
-
-<button id="topBtn"
-onclick="keAtas()">
-
+<button id="topBtn" onclick="keAtas()">
 ↑
-
 </button>
-
-
-
 
 
 <!-- =========================
      MODE TEMA
 ========================= -->
 
-
 <button id="themeBtn">
-
 🌙
-
 </button>
-
-
-
-
-
-
 
 
 <script>
 
-
-// Tombol kembali ke atas
+/* =========================
+   KEMBALI KE ATAS
+========================= */
 
 function keAtas(){
 
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
 
 
-
-
-
-// Animasi muncul saat scroll
-
-const cards =
-document.querySelectorAll(
-".card,.portfolio-card"
-);
-
-
-
-window.addEventListener(
-"scroll",
-()=>{
-
-
-cards.forEach(card=>{
-
-
-let posisi =
-card.getBoundingClientRect().top;
-
-
-
-if(posisi < window.innerHeight - 100){
-
-
-card.classList.add("show");
-
-
-}
-
-
-
-});
-
-
-});
-
-
-
-
-
-
-
-// Mode terang gelap
-
+/* =========================
+   MODE TERANG / GELAP
+========================= */
 
 const themeBtn =
 document.getElementById("themeBtn");
 
-
-
 themeBtn.onclick=function(){
 
+    document.body.classList.toggle("light-mode");
 
-document.body.classList.toggle(
-"light-mode"
-);
+    if(
+        document.body.classList.contains("light-mode")
+    ){
 
+        themeBtn.innerHTML="☀️";
 
+    }else{
 
-if(
-document.body.classList.contains(
-"light-mode"
-)
-){
+        themeBtn.innerHTML="🌙";
 
-
-themeBtn.innerHTML="☀️";
-
-
-}else{
-
-
-themeBtn.innerHTML="🌙";
-
-
-}
-
-
+    }
 
 };
 
 
+/* =========================
+   ANIMASI SCROLL
+========================= */
+
+const cards =
+document.querySelectorAll(
+".card,.portfolio-card,.profile-card,.biodata-card"
+);
+
+window.addEventListener("scroll",()=>{
+
+    cards.forEach(card=>{
+
+        let posisi =
+        card.getBoundingClientRect().top;
+
+        if(posisi < window.innerHeight - 100){
+
+            card.classList.add("show");
+
+        }
+
+    });
+
+});
 
 
 console.log(
-"Portfolio Cut Nursilul Aktif"
+"Portfolio Cut Nursilul Aktif 🕷️"
 );
 
-
-
 </script>
-  #topBtn{
 
-position:fixed;
-bottom:25px;
-right:25px;
-width:45px;
-height:45px;
-border:none;
-border-radius:50%;
-background:#ffd54f;
-font-size:22px;
-cursor:pointer;
-z-index:999;
-
-}
-
-
-
-#themeBtn{
-
-position:fixed;
-bottom:80px;
-right:25px;
-width:45px;
-height:45px;
-border:none;
-border-radius:50%;
-background:white;
-font-size:20px;
-cursor:pointer;
-z-index:999;
-
-}
-
-
-
-.show{
-
-opacity:1;
-transform:translateY(0);
-
-}    tolong lebih keren lagi mirip anak it gaya  nya bergerak pokoknya warna juga yang keren ada gambar spiderman laba laba 
+</body>
+</html>
