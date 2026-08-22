@@ -5,15 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cut Nursilul | IT Digital Portfolio</title>
+<title>Cut Nursilul | Digital Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
     margin:0;
@@ -27,23 +23,23 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
-    color:#fff;
+    color:white;
     background:#03050a;
     overflow-x:hidden;
-    transition:background .5s ease,color .5s ease;
+    transition:background .5s,color .5s;
 }
 
-/* =====================================================
+/* =========================
    BACKGROUND
-===================================================== */
+========================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     background-image:
-    linear-gradient(rgba(0,234,255,.045) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,234,255,.045) 1px,transparent 1px);
+    linear-gradient(rgba(0,234,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.05) 1px,transparent 1px);
     background-size:50px 50px;
     pointer-events:none;
     z-index:-10;
@@ -55,9 +51,9 @@ body::after{
     position:fixed;
     inset:0;
     background:
-    radial-gradient(circle at 15% 20%,rgba(255,23,68,.20),transparent 25%),
-    radial-gradient(circle at 85% 25%,rgba(0,234,255,.16),transparent 28%),
-    radial-gradient(circle at 50% 90%,rgba(130,0,255,.15),transparent 30%);
+    radial-gradient(circle at 10% 20%,rgba(255,0,70,.25),transparent 30%),
+    radial-gradient(circle at 90% 30%,rgba(0,220,255,.20),transparent 30%),
+    radial-gradient(circle at 50% 90%,rgba(120,0,255,.20),transparent 35%);
     pointer-events:none;
     z-index:-11;
 }
@@ -72,9 +68,9 @@ body::after{
     }
 }
 
-/* =====================================================
+/* =========================
    PARTICLES
-===================================================== */
+========================= */
 
 .particle{
     position:fixed;
@@ -82,54 +78,52 @@ body::after{
     height:4px;
     background:#00eaff;
     border-radius:50%;
-    box-shadow:
-    0 0 8px #00eaff,
-    0 0 18px #00eaff;
+    box-shadow:0 0 10px #00eaff;
     pointer-events:none;
     z-index:-2;
-    animation:particleFloat linear infinite;
+    animation:particleMove linear infinite;
 }
 
 .p1{
-    left:10%;
     top:70%;
+    left:10%;
     animation-duration:8s;
 }
 
 .p2{
-    left:25%;
     top:80%;
+    left:25%;
     animation-duration:12s;
 }
 
 .p3{
-    left:45%;
     top:40%;
+    left:45%;
     animation-duration:10s;
 }
 
 .p4{
-    left:70%;
     top:75%;
+    left:70%;
     animation-duration:14s;
 }
 
 .p5{
-    left:85%;
     top:35%;
+    left:85%;
     animation-duration:9s;
 }
 
 .p6{
-    left:55%;
     top:20%;
+    left:55%;
     animation-duration:11s;
 }
 
-@keyframes particleFloat{
+@keyframes particleMove{
 
     0%{
-        transform:translateY(0) scale(.5);
+        transform:translateY(0);
         opacity:0;
     }
 
@@ -137,38 +131,15 @@ body::after{
         opacity:1;
     }
 
-    70%{
-        opacity:1;
-    }
-
     100%{
-        transform:translateY(-180px) scale(1.5);
+        transform:translateY(-180px);
         opacity:0;
     }
 }
 
-/* =====================================================
-   MOUSE GLOW
-===================================================== */
-
-.cursor-glow{
-    position:fixed;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(0,234,255,.12),
-        transparent 70%
-    );
-    pointer-events:none;
-    transform:translate(-50%,-50%);
-    z-index:-1;
-}
-
-/* =====================================================
-   SPIDER WEB
-===================================================== */
+/* =========================
+   JARING LABA-LABA
+========================= */
 
 .spider-web{
     position:fixed;
@@ -198,29 +169,24 @@ body::after{
 .web-left{
     left:-250px;
     top:120px;
-    animation:webRotate 25s linear infinite;
+    animation:webSpin 25s linear infinite;
 }
 
 .web-right{
     right:-250px;
     bottom:-150px;
-    animation:webRotate 30s linear infinite reverse;
+    animation:webSpin 30s linear infinite reverse;
 }
 
-@keyframes webRotate{
-
-    from{
-        transform:rotate(0deg);
-    }
-
+@keyframes webSpin{
     to{
         transform:rotate(360deg);
     }
 }
 
-/* =====================================================
-   SPIDER
-===================================================== */
+/* =========================
+   LABA-LABA ATAS
+========================= */
 
 .spider-string{
     position:fixed;
@@ -230,7 +196,7 @@ body::after{
     height:170px;
     background:linear-gradient(
         transparent,
-        #fff,
+        white,
         #ff1744
     );
     z-index:999;
@@ -244,7 +210,7 @@ body::after{
     height:110px;
     z-index:1000;
     pointer-events:none;
-    animation:spiderMove 7s ease-in-out infinite;
+    animation:spiderDrop 7s ease-in-out infinite;
 }
 
 .spider-body{
@@ -253,14 +219,18 @@ body::after{
     height:62px;
     left:30px;
     top:20px;
+
     border-radius:50%;
+
     background:
     radial-gradient(
         circle at 50% 30%,
         #ff435c 0 7%,
         #070707 8% 100%
     );
+
     border:2px solid #ff1744;
+
     box-shadow:
     0 0 10px #ff1744,
     0 0 30px rgba(255,23,68,.8);
@@ -342,7 +312,7 @@ body::after{
     transform:rotate(30deg);
 }
 
-@keyframes spiderMove{
+@keyframes spiderDrop{
 
     0%{
         transform:translateY(-10px) rotate(-5deg);
@@ -365,22 +335,27 @@ body::after{
     }
 }
 
-/* =====================================================
+/* =========================
    NAVBAR
-===================================================== */
+========================= */
 
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
+
     padding:16px 6%;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(2,5,10,.78);
+
+    background:rgba(2,5,10,.88);
     backdrop-filter:blur(18px);
+
     border-bottom:1px solid rgba(0,234,255,.2);
+
     z-index:900;
 }
 
@@ -388,7 +363,7 @@ nav{
     font-family:'Orbitron',sans-serif;
     font-weight:800;
     font-size:21px;
-    color:#fff;
+
     text-shadow:
     0 0 8px #ff1744,
     0 0 20px #ff1744;
@@ -400,19 +375,20 @@ nav{
 
 nav ul{
     display:flex;
-    align-items:center;
-    gap:16px;
+    gap:15px;
     list-style:none;
+    flex-wrap:wrap;
+    justify-content:center;
 }
 
-nav a{
-    color:#cbd5e1;
+nav ul li a{
+    color:#ddd;
     text-decoration:none;
     font-size:12px;
     transition:.3s;
 }
 
-nav a:hover{
+nav ul li a:hover{
     color:#00eaff;
     text-shadow:0 0 10px #00eaff;
 }
@@ -421,16 +397,20 @@ nav a:hover{
     color:#00eaff !important;
 }
 
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
 .hero{
     min-height:100vh;
-    padding:150px 8% 80px;
+
+    padding:
+    150px 8% 80px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     gap:90px;
 }
 
@@ -442,19 +422,27 @@ nav a:hover{
 .hero-photo::before{
     content:"";
     position:absolute;
+
     inset:-18px;
+
     border-radius:50%;
+
     border:2px dashed #ff1744;
-    animation:ringRotate 15s linear infinite;
+
+    animation:ringSpin 15s linear infinite;
 }
 
 .hero-photo::after{
     content:"";
     position:absolute;
+
     inset:-30px;
+
     border-radius:50%;
+
     border:1px solid rgba(0,234,255,.3);
-    animation:ringRotate 20s linear infinite reverse;
+
+    animation:ringSpin 20s linear infinite reverse;
 }
 
 @keyframes photoFloat{
@@ -468,34 +456,124 @@ nav a:hover{
     }
 }
 
-@keyframes ringRotate{
+@keyframes ringSpin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================
+   FOTO LABA-LABA
+========================= */
+
+.empty-photo{
+    width:285px;
+    height:285px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:120px;
+
+    background:
+    radial-gradient(
+        circle at 50% 40%,
+        #202536 0%,
+        #090c14 45%,
+        #03050a 100%
+    );
+
+    border:5px solid #ff1744;
+
+    box-shadow:
+    0 0 15px #ff1744,
+    0 0 40px rgba(255,23,68,.7),
+    0 0 80px rgba(0,234,255,.3);
+
+    animation:
+    spiderPhotoFloat 4s ease-in-out infinite,
+    spiderPhotoGlow 2s ease-in-out infinite alternate;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.empty-photo::before{
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border-radius:50%;
+
+    border:1px dashed rgba(0,234,255,.5);
+
+    animation:photoRing 8s linear infinite;
+}
+
+.empty-photo::after{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    background:rgba(255,23,68,.08);
+
+    filter:blur(25px);
+}
+
+.spider-photo{
+    text-shadow:
+    0 0 10px #ff1744,
+    0 0 25px #ff1744,
+    0 0 50px #ff1744;
+}
+
+@keyframes spiderPhotoFloat{
+
+    0%,100%{
+        transform:translateY(0) scale(1);
+    }
+
+    50%{
+        transform:translateY(-15px) scale(1.03);
+    }
+}
+
+@keyframes spiderPhotoGlow{
+
+    from{
+        box-shadow:
+        0 0 15px #ff1744,
+        0 0 40px rgba(255,23,68,.6);
+    }
+
+    to{
+        box-shadow:
+        0 0 25px #ff1744,
+        0 0 65px rgba(255,23,68,.9),
+        0 0 100px rgba(0,234,255,.4);
+    }
+}
+
+@keyframes photoRing{
 
     to{
         transform:rotate(360deg);
     }
 }
 
-.empty-photo{
-    width:285px;
-    height:285px;
-    border-radius:50%;
-    overflow:hidden;
-    position:relative;
-    background:#070b12;
-    border:5px solid #ff1744;
-    box-shadow:
-    0 0 15px #ff1744,
-    0 0 40px rgba(255,23,68,.6),
-    0 0 80px rgba(0,234,255,.2);
-}
-
-.empty-photo img{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-    border-radius:50%;
-}
+/* =========================
+   HERO TEXT
+========================= */
 
 .hero-text{
     max-width:650px;
@@ -503,18 +581,24 @@ nav a:hover{
 
 .small-title{
     color:#00eaff;
+
     font-family:'Orbitron',sans-serif;
+
     letter-spacing:5px;
-    font-size:14px;
+
     margin-bottom:15px;
 }
 
 .hero h1{
     font-family:'Orbitron',sans-serif;
-    font-size:clamp(42px,7vw,75px);
+
+    font-size:
+    clamp(42px,7vw,75px);
+
     line-height:1.05;
+
     text-shadow:
-    0 0 10px rgba(255,23,68,.8);
+    0 0 15px rgba(255,23,68,.8);
 }
 
 .hero h1 span{
@@ -522,21 +606,24 @@ nav a:hover{
 }
 
 .hero h2{
-    margin:20px 0;
     color:#00eaff;
-    font-size:23px;
+    margin:20px 0;
 }
 
 .hero p{
-    color:#aebdce;
+    color:#b9c8d9;
     line-height:1.9;
 }
 
 .typing{
     width:0;
+
     overflow:hidden;
+
     white-space:nowrap;
+
     border-right:3px solid #00eaff;
+
     animation:
     typing 4s steps(32) infinite alternate,
     blink .7s infinite;
@@ -560,34 +647,47 @@ nav a:hover{
     }
 }
 
-/* =====================================================
+/* =========================
    BUTTON
-===================================================== */
+========================= */
 
 .btn{
     display:inline-block;
+
     margin-top:28px;
+
     padding:13px 25px;
-    color:#fff;
+
+    color:white;
+
     text-decoration:none;
+
     border:1px solid #ff1744;
+
     border-radius:10px;
+
     background:rgba(255,23,68,.08);
-    box-shadow:0 0 12px rgba(255,23,68,.4);
+
+    box-shadow:
+    0 0 12px rgba(255,23,68,.4);
+
     transition:.35s;
 }
 
 .btn:hover{
-    transform:translateY(-5px) scale(1.03);
+    transform:
+    translateY(-5px)
+    scale(1.03);
+
     background:#ff1744;
+
     box-shadow:
-    0 0 15px #ff1744,
-    0 0 35px rgba(255,23,68,.5);
+    0 0 30px #ff1744;
 }
 
-/* =====================================================
-   SECTIONS
-===================================================== */
+/* =========================
+   SECTION
+========================= */
 
 section{
     padding:100px 8%;
@@ -600,52 +700,72 @@ section{
 
 .section-title small{
     color:#00eaff;
+
     font-family:'Orbitron',sans-serif;
+
     letter-spacing:4px;
 }
 
 .section-title h2{
-    margin-top:10px;
     font-family:'Orbitron',sans-serif;
+
     font-size:38px;
-    text-shadow:0 0 15px rgba(255,23,68,.5);
+
+    margin-top:10px;
+
+    text-shadow:
+    0 0 12px rgba(255,23,68,.5);
 }
 
-/* =====================================================
-   CARDS
-===================================================== */
+/* =========================
+   CARD
+========================= */
 
 .card{
     padding:30px;
+
     border-radius:20px;
+
     background:rgba(255,255,255,.045);
-    border:1px solid rgba(0,234,255,.15);
+
+    border:
+    1px solid rgba(0,234,255,.15);
+
     backdrop-filter:blur(15px);
-    box-shadow:0 15px 50px rgba(0,0,0,.3);
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.3);
+
     transition:.4s;
 }
 
 .card:hover{
     transform:translateY(-10px);
+
     border-color:#00eaff;
+
     box-shadow:
-    0 0 20px rgba(0,234,255,.2),
-    0 20px 60px rgba(0,0,0,.4);
+    0 0 25px rgba(0,234,255,.2);
 }
 
-/* =====================================================
+/* =========================
    ABOUT
-===================================================== */
+========================= */
 
 .about-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    1fr 1fr;
+
     gap:30px;
 }
 
 .profile-card{
     text-align:center;
-    animation:cardFloat 5s ease-in-out infinite;
+
+    animation:
+    cardFloat 5s ease-in-out infinite;
 }
 
 @keyframes cardFloat{
@@ -670,71 +790,93 @@ section{
 }
 
 .profile-card p{
-    color:#aebdce;
+    color:#b9c8d9;
     line-height:1.8;
 }
 
 .bio-item{
     padding:15px;
+
     margin-bottom:12px;
-    border-left:3px solid #00eaff;
-    background:rgba(0,234,255,.04);
+
+    border-left:
+    3px solid #00eaff;
+
+    background:
+    rgba(0,234,255,.04);
+
     transition:.3s;
 }
 
 .bio-item:hover{
     transform:translateX(8px);
-    background:rgba(255,23,68,.08);
+
+    background:
+    rgba(255,23,68,.08);
 }
 
-/* =====================================================
+/* =========================
    TERMINAL
-===================================================== */
+========================= */
 
 .terminal{
     max-width:850px;
+
     margin:auto;
+
     overflow:hidden;
+
     border-radius:18px;
+
     background:#05080d;
+
     border:1px solid #203640;
-    box-shadow:0 0 35px rgba(0,234,255,.12);
+
+    box-shadow:
+    0 0 35px rgba(0,234,255,.12);
 }
 
 .terminal-head{
     padding:13px 18px;
+
     background:#0c131c;
+
     color:#8da0b5;
 }
 
 .terminal-body{
     padding:25px;
+
     font-family:monospace;
+
     line-height:2;
+
     color:#00ff9d;
 }
 
-.terminal-body .red{
+.red{
     color:#ff1744;
 }
 
-.terminal-body .blue{
+.blue{
     color:#00eaff;
 }
 
 .cursor{
-    animation:cursorBlink .7s infinite;
+    animation:
+    blinkCursor .7s infinite;
 }
 
-@keyframes cursorBlink{
+@keyframes blinkCursor{
+
     50%{
         opacity:0;
     }
 }
 
-/* =====================================================
+/* =========================
    EDUCATION
-===================================================== */
+========================= */
 
 .timeline{
     display:grid;
@@ -742,7 +884,8 @@ section{
 }
 
 .timeline-card{
-    border-left:4px solid #ff1744;
+    border-left:
+    4px solid #ff1744;
 }
 
 .timeline-card h3{
@@ -751,13 +894,13 @@ section{
 }
 
 .timeline-card p{
-    color:#aebdce;
+    color:#b9c8d9;
     line-height:1.8;
 }
 
-/* =====================================================
+/* =========================
    SKILLS
-===================================================== */
+========================= */
 
 .skills{
     display:grid;
@@ -767,47 +910,57 @@ section{
 .skill-top{
     display:flex;
     justify-content:space-between;
+
     margin-bottom:8px;
 }
 
 .skill-bar{
     height:12px;
-    background:#111923;
+
+    background:#101722;
+
     border-radius:20px;
+
     overflow:hidden;
 }
 
 .skill-progress{
     height:100%;
+
     border-radius:20px;
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         90deg,
         #ff1744,
         #ff4d6d,
         #00eaff
     );
-    box-shadow:0 0 15px rgba(0,234,255,.5);
-    animation:skillPulse 2s infinite alternate;
+
+    box-shadow:
+    0 0 15px rgba(0,234,255,.5);
+
+    animation:
+    skillGlow 2s infinite alternate;
 }
 
-@keyframes skillPulse{
-
-    from{
-        filter:brightness(.9);
-    }
+@keyframes skillGlow{
 
     to{
         filter:brightness(1.4);
     }
 }
 
-/* =====================================================
+/* =========================
    PROJECT
-===================================================== */
+========================= */
 
 .project-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:25px;
 }
 
@@ -818,18 +971,25 @@ section{
 
 .project::before{
     content:"";
+
     position:absolute;
-    top:0;
-    left:-100%;
+
     width:100%;
     height:2px;
-    background:linear-gradient(
+
+    top:0;
+    left:-100%;
+
+    background:
+    linear-gradient(
         90deg,
         transparent,
         #00eaff,
         transparent
     );
-    animation:scan 3s linear infinite;
+
+    animation:
+    scan 3s linear infinite;
 }
 
 @keyframes scan{
@@ -841,22 +1001,25 @@ section{
 
 .project-icon{
     font-size:45px;
+
     margin-bottom:15px;
 }
 
 .project h3{
     color:#00eaff;
+
     margin-bottom:12px;
 }
 
 .project p{
     color:#aebdce;
+
     line-height:1.7;
 }
 
-/* =====================================================
+/* =========================
    CONTACT
-===================================================== */
+========================= */
 
 .contact-card{
     max-width:700px;
@@ -865,100 +1028,153 @@ section{
 
 .contact-item{
     padding:18px;
+
     margin-bottom:15px;
-    border-left:3px solid #ff1744;
-    background:rgba(0,234,255,.04);
+
+    background:
+    rgba(0,234,255,.04);
+
+    border-left:
+    3px solid #ff1744;
+
     border-radius:10px;
 }
 
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 footer{
     padding:45px 20px;
+
     text-align:center;
-    border-top:1px solid rgba(0,234,255,.15);
+
+    border-top:
+    1px solid rgba(0,234,255,.15);
+
     background:#020408;
 }
 
 footer h3{
     font-family:'Orbitron',sans-serif;
+
     color:#ff1744;
 }
 
 footer p{
-    margin-top:8px;
     color:#718096;
+
+    margin-top:8px;
 }
 
-/* =====================================================
-   FLOAT BUTTON
-===================================================== */
+/* =========================
+   BUTTON FLOAT
+========================= */
 
 #topBtn,
 #themeBtn{
+
     position:fixed;
+
     right:25px;
+
     width:48px;
     height:48px;
-    border:0;
+
+    border:none;
+
     border-radius:50%;
+
     cursor:pointer;
+
     z-index:950;
+
     transition:.3s;
 }
 
 #topBtn{
+
     bottom:25px;
-    color:#fff;
+
     background:#ff1744;
+
+    color:white;
+
     font-size:20px;
-    box-shadow:0 0 20px #ff1744;
+
+    box-shadow:
+    0 0 20px #ff1744;
 }
 
 #themeBtn{
+
     bottom:85px;
-    background:#fff;
+
+    background:white;
+
     color:#111;
+
     font-size:20px;
-    box-shadow:0 0 15px rgba(255,255,255,.4);
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,.4);
 }
 
 #topBtn:hover,
 #themeBtn:hover{
-    transform:scale(1.12) rotate(8deg);
+
+    transform:
+    scale(1.12);
 }
 
-/* =====================================================
+/* =========================
    LIGHT MODE
-===================================================== */
+========================= */
 
 body.light-mode{
+
     color:#111;
+
     background:#eef5f8;
 }
 
 body.light-mode::before{
+
     background-image:
-    linear-gradient(rgba(0,100,120,.08) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,100,120,.08) 1px,transparent 1px);
+
+    linear-gradient(
+        rgba(0,100,120,.08) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(0,100,120,.08) 1px,
+        transparent 1px
+    );
 }
 
 body.light-mode nav{
-    background:rgba(255,255,255,.9);
+
+    background:
+    rgba(255,255,255,.94);
 }
 
-body.light-mode nav a{
+body.light-mode nav ul li a{
+
     color:#222;
 }
 
 body.light-mode .logo{
+
     color:#111;
 }
 
 body.light-mode .card{
-    background:rgba(255,255,255,.75);
+
+    background:
+    rgba(255,255,255,.85);
+
     color:#111;
 }
 
@@ -966,117 +1182,148 @@ body.light-mode .hero p,
 body.light-mode .profile-card p,
 body.light-mode .timeline-card p,
 body.light-mode .project p{
+
     color:#333;
 }
 
 body.light-mode .terminal{
+
     background:#fff;
 }
 
 body.light-mode .terminal-head{
+
     background:#e5e7eb;
+
     color:#333;
 }
 
 body.light-mode footer{
+
     background:#e5e7eb;
 }
 
 body.light-mode #themeBtn{
+
     background:#111;
-    color:#fff;
+
+    color:white;
 }
 
-/* =====================================================
+/* =========================
    RESPONSIVE
-===================================================== */
+========================= */
 
-@media(max-width:1050px){
+@media(max-width:1000px){
 
     nav{
-        padding:15px 4%;
+
+        padding:
+        15px 4%;
     }
 
     nav ul{
+
         gap:9px;
     }
 
-    nav a{
+    nav ul li a{
+
         font-size:10px;
     }
 
-    .hero{
-        gap:50px;
-    }
-
     .project-grid{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+        1fr 1fr;
     }
 }
 
 @media(max-width:768px){
 
     nav{
+
         flex-direction:column;
+
         gap:12px;
     }
 
     nav ul{
+
         justify-content:center;
+
         flex-wrap:wrap;
     }
 
     .hero{
+
         flex-direction:column;
+
         text-align:center;
+
         padding-top:190px;
     }
 
     .empty-photo{
+
         width:225px;
+
         height:225px;
+
+        font-size:95px;
     }
 
     .hero h2{
+
         font-size:18px;
     }
 
     .typing{
+
         margin:auto;
     }
 
     .about-grid{
-        grid-template-columns:1fr;
+
+        grid-template-columns:
+        1fr;
     }
 
     .project-grid{
-        grid-template-columns:1fr;
+
+        grid-template-columns:
+        1fr;
     }
 
     .spider{
-        right:10px;
-        transform:scale(.7);
-        transform-origin:top right;
-    }
 
-    .spider-string{
-        right:50px;
+        right:10px;
+
+        transform:
+        scale(.7);
+
+        transform-origin:
+        top right;
     }
 
     section{
-        padding:75px 6%;
+
+        padding:
+        75px 6%;
     }
 
     .section-title h2{
+
         font-size:30px;
     }
 }
 
 </style>
+
 </head>
 
-
 <body>
+
 
 <!-- PARTICLES -->
 
@@ -1087,37 +1334,35 @@ body.light-mode #themeBtn{
 <div class="particle p5"></div>
 <div class="particle p6"></div>
 
-<div class="cursor-glow"></div>
 
-
-<!-- SPIDER WEB -->
+<!-- JARING -->
 
 <div class="spider-web web-left"></div>
 <div class="spider-web web-right"></div>
 
 
-<!-- SPIDER -->
+<!-- LABA-LABA -->
 
 <div class="spider-string"></div>
 
 <div class="spider">
 
-    <div class="spider-body">
+<div class="spider-body">
 
-        <div class="spider-eye left"></div>
-        <div class="spider-eye right"></div>
+<div class="spider-eye left"></div>
+<div class="spider-eye right"></div>
 
-    </div>
+</div>
 
-    <div class="leg l1"></div>
-    <div class="leg l2"></div>
-    <div class="leg l3"></div>
-    <div class="leg l4"></div>
+<div class="leg l1"></div>
+<div class="leg l2"></div>
+<div class="leg l3"></div>
+<div class="leg l4"></div>
 
-    <div class="leg r1"></div>
-    <div class="leg r2"></div>
-    <div class="leg r3"></div>
-    <div class="leg r4"></div>
+<div class="leg r1"></div>
+<div class="leg r2"></div>
+<div class="leg r3"></div>
+<div class="leg r4"></div>
 
 </div>
 
@@ -1127,59 +1372,93 @@ body.light-mode #themeBtn{
 <nav>
 
 <div class="logo">
-<span>🕷️</span> CUT NURSILUL
+
+<span>🕷️</span>
+
+CUT NURSILUL
+
 </div>
+
 
 <ul>
 
 <li>
-<a href="#home">Home</a>
+<a href="#home">
+Home
+</a>
 </li>
 
 <li>
-<a href="#about">Tentang</a>
+<a href="#about">
+Tentang
+</a>
 </li>
 
 <li>
-<a href="#education">Pendidikan</a>
+<a href="#education">
+Pendidikan
+</a>
 </li>
 
 <li>
-<a href="#skill">Skill</a>
+<a href="#skill">
+Skill
+</a>
 </li>
 
 <li>
-<a href="#projects">Project</a>
+<a href="#projects">
+Project
+</a>
 </li>
 
 <li>
-<a class="project-link"
+
+<a
+class="project-link"
 href="https://cutnursilul230619-netizen.github.io/toko-online/"
 target="_blank">
+
 🛒 Toko
+
 </a>
+
 </li>
 
 <li>
-<a class="project-link"
+
+<a
+class="project-link"
 href="https://cutnursilul230619-netizen.github.io/mila-dashboard/"
 target="_blank">
+
 📊 Mila
+
 </a>
+
 </li>
 
 <li>
-<a class="project-link"
+
+<a
+class="project-link"
 href="https://cutnursilul230619-netizen.github.io/academic-meet/"
 target="_blank">
+
 📚 Academic
+
 </a>
+
 </li>
 
 <li>
+
 <a href="#contact">
+
 Kontak
+
 </a>
+
 </li>
 
 </ul>
@@ -1189,36 +1468,54 @@ Kontak
 
 <!-- HERO -->
 
-<section class="hero" id="home">
+<section
+class="hero"
+id="home">
+
 
 <div class="hero-photo">
 
-<div class="empty-photo">
 
-<img
-src="foto-profil.jpg"
-alt="Foto Profil Cut Nursilul">
+<div class="empty-photo spider-photo">
+
+🕷️
 
 </div>
+
 
 </div>
 
 
 <div class="hero-text">
 
+
 <div class="small-title">
+
 HELLO WORLD_
+
 </div>
 
+
 <h1>
-CUT <span>NURSILUL</span>
+
+CUT
+
+<span>
+NURSILUL
+</span>
+
 </h1>
 
+
 <h2 class="typing">
+
 Web Designer & Digital Creator
+
 </h2>
 
+
 <p>
+
 Halo, saya Cut Nursilul.
 
 Saya adalah mahasiswa Teknik Informatika
@@ -1227,11 +1524,18 @@ UI/UX, teknologi digital, dan kreativitas.
 
 Saya senang membuat project digital
 yang modern, interaktif, dan bermanfaat.
+
 </p>
 
-<a href="#about" class="btn">
+
+<a
+href="#about"
+class="btn">
+
 🚀 Explore My Profile
+
 </a>
+
 
 </div>
 
@@ -1240,4 +1544,41 @@ yang modern, interaktif, dan bermanfaat.
 
 <!-- ABOUT -->
 
-<section
+<section id="about">
+
+
+<div class="section-title">
+
+<small>
+01 / PROFILE
+</small>
+
+<h2>
+Tentang Saya
+</h2>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="card profile-card">
+
+
+<div class="profile-icon">
+👩‍💻
+</div>
+
+
+<h2>
+Cut Nursilul
+</h2>
+
+
+<h3>
+Web Designer & Digital Creator
+</h3>
+
+
+<
