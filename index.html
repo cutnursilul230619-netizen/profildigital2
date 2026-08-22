@@ -5,11 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cut Nursilul | Digital Portfolio</title>
+<title>Cut Nursilul | IT Digital Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -23,83 +27,168 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
-    color:white;
-    background:
-    radial-gradient(circle at 10% 20%,rgba(255,0,70,.25),transparent 30%),
-    radial-gradient(circle at 90% 30%,rgba(0,220,255,.20),transparent 30%),
-    radial-gradient(circle at 50% 90%,rgba(120,0,255,.20),transparent 35%),
-    #03050a;
+    color:#fff;
+    background:#03050a;
     overflow-x:hidden;
+    transition:background .5s ease,color .5s ease;
 }
 
-/* GRID */
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     background-image:
-    linear-gradient(rgba(0,234,255,.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,234,255,.05) 1px,transparent 1px);
+    linear-gradient(rgba(0,234,255,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.045) 1px,transparent 1px);
     background-size:50px 50px;
     pointer-events:none;
     z-index:-10;
-    animation:gridMove 15s linear infinite;
+    animation:gridMove 12s linear infinite;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 15% 20%,rgba(255,23,68,.20),transparent 25%),
+    radial-gradient(circle at 85% 25%,rgba(0,234,255,.16),transparent 28%),
+    radial-gradient(circle at 50% 90%,rgba(130,0,255,.15),transparent 30%);
+    pointer-events:none;
+    z-index:-11;
 }
 
 @keyframes gridMove{
-    from{transform:translateY(0)}
-    to{transform:translateY(50px)}
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(50px);
+    }
 }
 
-/* PARTIKEL */
+/* =====================================================
+   PARTICLES
+===================================================== */
 
 .particle{
     position:fixed;
-    width:3px;
-    height:3px;
+    width:4px;
+    height:4px;
     background:#00eaff;
     border-radius:50%;
-    box-shadow:0 0 8px #00eaff,0 0 15px #00eaff;
+    box-shadow:
+    0 0 8px #00eaff,
+    0 0 18px #00eaff;
     pointer-events:none;
-    z-index:-5;
-    animation:particleMove linear infinite;
+    z-index:-2;
+    animation:particleFloat linear infinite;
 }
 
-.p1{top:20%;left:15%;animation-duration:8s}
-.p2{top:70%;left:30%;animation-duration:12s}
-.p3{top:40%;left:80%;animation-duration:10s}
-.p4{top:85%;left:70%;animation-duration:15s}
-.p5{top:15%;left:60%;animation-duration:9s}
-
-@keyframes particleMove{
-    0%{transform:translateY(0);opacity:.2}
-    50%{opacity:1}
-    100%{transform:translateY(-120px);opacity:0}
+.p1{
+    left:10%;
+    top:70%;
+    animation-duration:8s;
 }
 
-/* JARING */
+.p2{
+    left:25%;
+    top:80%;
+    animation-duration:12s;
+}
+
+.p3{
+    left:45%;
+    top:40%;
+    animation-duration:10s;
+}
+
+.p4{
+    left:70%;
+    top:75%;
+    animation-duration:14s;
+}
+
+.p5{
+    left:85%;
+    top:35%;
+    animation-duration:9s;
+}
+
+.p6{
+    left:55%;
+    top:20%;
+    animation-duration:11s;
+}
+
+@keyframes particleFloat{
+
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+
+    30%{
+        opacity:1;
+    }
+
+    70%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-180px) scale(1.5);
+        opacity:0;
+    }
+}
+
+/* =====================================================
+   MOUSE GLOW
+===================================================== */
+
+.cursor-glow{
+    position:fixed;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(0,234,255,.12),
+        transparent 70%
+    );
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+}
+
+/* =====================================================
+   SPIDER WEB
+===================================================== */
 
 .spider-web{
     position:fixed;
-    width:400px;
-    height:400px;
+    width:420px;
+    height:420px;
+    border:1px solid rgba(255,255,255,.12);
     border-radius:50%;
-    border:1px solid rgba(255,255,255,.15);
     pointer-events:none;
-    z-index:-4;
-    opacity:.7;
+    z-index:-3;
 }
 
 .spider-web::before,
 .spider-web::after{
     content:"";
     position:absolute;
-    width:100%;
-    height:1px;
-    top:50%;
-    left:0;
-    background:rgba(255,255,255,.12);
+    left:50%;
+    top:0;
+    width:1px;
+    height:100%;
+    background:rgba(255,255,255,.1);
 }
 
 .spider-web::after{
@@ -107,34 +196,41 @@ body::before{
 }
 
 .web-left{
-    left:-220px;
+    left:-250px;
     top:120px;
-    animation:webSpin 25s linear infinite;
+    animation:webRotate 25s linear infinite;
 }
 
 .web-right{
-    right:-220px;
-    bottom:-100px;
-    animation:webSpin 30s linear infinite reverse;
+    right:-250px;
+    bottom:-150px;
+    animation:webRotate 30s linear infinite reverse;
 }
 
-@keyframes webSpin{
-    from{transform:rotate(0)}
-    to{transform:rotate(360deg)}
+@keyframes webRotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
 }
 
-/* LABA-LABA */
+/* =====================================================
+   SPIDER
+===================================================== */
 
 .spider-string{
     position:fixed;
     top:0;
-    right:90px;
+    right:85px;
     width:2px;
-    height:150px;
+    height:170px;
     background:linear-gradient(
-        to bottom,
         transparent,
-        white,
+        #fff,
         #ff1744
     );
     z-index:999;
@@ -143,101 +239,159 @@ body::before{
 .spider{
     position:fixed;
     top:130px;
-    right:35px;
-    width:100px;
-    height:100px;
+    right:30px;
+    width:110px;
+    height:110px;
     z-index:1000;
     pointer-events:none;
-    animation:spiderDrop 6s ease-in-out infinite;
+    animation:spiderMove 7s ease-in-out infinite;
 }
 
 .spider-body{
     position:absolute;
-    width:45px;
-    height:60px;
-    left:28px;
+    width:48px;
+    height:62px;
+    left:30px;
     top:20px;
+    border-radius:50%;
     background:
     radial-gradient(
-        circle at 50% 35%,
-        #ff334f 0 8%,
-        #080808 9% 100%
+        circle at 50% 30%,
+        #ff435c 0 7%,
+        #070707 8% 100%
     );
-    border-radius:50%;
     border:2px solid #ff1744;
     box-shadow:
-    0 0 8px #ff1744,
-    0 0 20px rgba(255,23,68,.8);
+    0 0 10px #ff1744,
+    0 0 30px rgba(255,23,68,.8);
 }
 
 .spider-eye{
     position:absolute;
-    width:7px;
-    height:7px;
-    top:15px;
+    width:8px;
+    height:8px;
+    top:14px;
     background:white;
     border-radius:50%;
-    box-shadow:0 0 8px white;
+    box-shadow:0 0 10px white;
 }
 
 .spider-eye.left{
-    left:10px;
+    left:9px;
 }
 
 .spider-eye.right{
-    right:10px;
+    right:9px;
 }
 
 .leg{
     position:absolute;
-    width:55px;
+    width:58px;
     height:5px;
-    background:#111;
-    border:1px solid #ff1744;
     border-radius:10px;
-    box-shadow:0 0 5px #ff1744;
+    background:#090909;
+    border:1px solid #ff1744;
+    box-shadow:0 0 7px #ff1744;
 }
 
-.l1{left:-18px;top:25px;transform:rotate(25deg)}
-.l2{left:-25px;top:40px;transform:rotate(5deg)}
-.l3{left:-25px;top:55px;transform:rotate(-15deg)}
-.l4{left:-18px;top:70px;transform:rotate(-30deg)}
-
-.r1{right:-18px;top:25px;transform:rotate(-25deg)}
-.r2{right:-25px;top:40px;transform:rotate(-5deg)}
-.r3{right:-25px;top:55px;transform:rotate(15deg)}
-.r4{right:-18px;top:70px;transform:rotate(30deg)}
-
-@keyframes spiderDrop{
-    0%{transform:translateY(-20px) rotate(-5deg)}
-    25%{transform:translateY(100px) rotate(5deg)}
-    50%{transform:translateY(220px) rotate(-5deg)}
-    75%{transform:translateY(100px) rotate(5deg)}
-    100%{transform:translateY(-20px) rotate(-5deg)}
+.l1{
+    left:-18px;
+    top:25px;
+    transform:rotate(25deg);
 }
 
-/* NAVBAR */
+.l2{
+    left:-25px;
+    top:40px;
+    transform:rotate(7deg);
+}
+
+.l3{
+    left:-25px;
+    top:56px;
+    transform:rotate(-15deg);
+}
+
+.l4{
+    left:-18px;
+    top:72px;
+    transform:rotate(-30deg);
+}
+
+.r1{
+    right:-18px;
+    top:25px;
+    transform:rotate(-25deg);
+}
+
+.r2{
+    right:-25px;
+    top:40px;
+    transform:rotate(-7deg);
+}
+
+.r3{
+    right:-25px;
+    top:56px;
+    transform:rotate(15deg);
+}
+
+.r4{
+    right:-18px;
+    top:72px;
+    transform:rotate(30deg);
+}
+
+@keyframes spiderMove{
+
+    0%{
+        transform:translateY(-10px) rotate(-5deg);
+    }
+
+    25%{
+        transform:translateY(100px) rotate(5deg);
+    }
+
+    50%{
+        transform:translateY(230px) rotate(-5deg);
+    }
+
+    75%{
+        transform:translateY(100px) rotate(5deg);
+    }
+
+    100%{
+        transform:translateY(-10px) rotate(-5deg);
+    }
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
 
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    padding:18px 6%;
+    padding:16px 6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(2,5,10,.82);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(0,234,255,.25);
-    z-index:1000;
+    background:rgba(2,5,10,.78);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,234,255,.2);
+    z-index:900;
 }
 
 .logo{
     font-family:'Orbitron',sans-serif;
-    font-size:22px;
     font-weight:800;
-    text-shadow:0 0 5px #ff1744,0 0 15px #ff1744;
+    font-size:21px;
+    color:#fff;
+    text-shadow:
+    0 0 8px #ff1744,
+    0 0 20px #ff1744;
 }
 
 .logo span{
@@ -246,74 +400,101 @@ nav{
 
 nav ul{
     display:flex;
-    list-style:none;
-    gap:18px;
     align-items:center;
+    gap:16px;
+    list-style:none;
 }
 
-nav ul li a{
-    color:#ddd;
+nav a{
+    color:#cbd5e1;
     text-decoration:none;
-    font-size:13px;
+    font-size:12px;
     transition:.3s;
 }
 
-nav ul li a:hover{
+nav a:hover{
     color:#00eaff;
-    text-shadow:0 0 8px #00eaff;
+    text-shadow:0 0 10px #00eaff;
 }
 
 .project-link{
     color:#00eaff !important;
 }
 
-/* HERO */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
     min-height:100vh;
+    padding:150px 8% 80px;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:80px;
-    padding:140px 8% 70px;
+    gap:90px;
 }
 
 .hero-photo{
     position:relative;
+    animation:photoFloat 4s ease-in-out infinite;
 }
 
 .hero-photo::before{
     content:"";
     position:absolute;
-    inset:-15px;
+    inset:-18px;
     border-radius:50%;
     border:2px dashed #ff1744;
-    animation:photoSpin 15s linear infinite;
+    animation:ringRotate 15s linear infinite;
 }
 
-@keyframes photoSpin{
-    to{transform:rotate(360deg)}
+.hero-photo::after{
+    content:"";
+    position:absolute;
+    inset:-30px;
+    border-radius:50%;
+    border:1px solid rgba(0,234,255,.3);
+    animation:ringRotate 20s linear infinite reverse;
+}
+
+@keyframes photoFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+@keyframes ringRotate{
+
+    to{
+        transform:rotate(360deg);
+    }
 }
 
 .empty-photo{
-    width:280px;
-    height:280px;
+    width:285px;
+    height:285px;
     border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:80px;
-    background:radial-gradient(circle,#171c2b,#03050a);
+    overflow:hidden;
+    position:relative;
+    background:#070b12;
     border:5px solid #ff1744;
     box-shadow:
     0 0 15px #ff1744,
-    0 0 40px rgba(255,23,68,.6);
-    animation:heroFloat 4s ease-in-out infinite;
+    0 0 40px rgba(255,23,68,.6),
+    0 0 80px rgba(0,234,255,.2);
 }
 
-@keyframes heroFloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+.empty-photo img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius:50%;
 }
 
 .hero-text{
@@ -323,15 +504,17 @@ nav ul li a:hover{
 .small-title{
     color:#00eaff;
     font-family:'Orbitron',sans-serif;
-    letter-spacing:4px;
+    letter-spacing:5px;
+    font-size:14px;
     margin-bottom:15px;
 }
 
 .hero h1{
     font-family:'Orbitron',sans-serif;
-    font-size:clamp(40px,6vw,70px);
-    line-height:1.1;
-    text-shadow:0 0 10px #ff1744;
+    font-size:clamp(42px,7vw,75px);
+    line-height:1.05;
+    text-shadow:
+    0 0 10px rgba(255,23,68,.8);
 }
 
 .hero h1 span{
@@ -339,57 +522,72 @@ nav ul li a:hover{
 }
 
 .hero h2{
-    color:#00eaff;
     margin:20px 0;
+    color:#00eaff;
+    font-size:23px;
 }
 
 .hero p{
-    color:#b9c8d9;
-    line-height:1.8;
+    color:#aebdce;
+    line-height:1.9;
 }
 
 .typing{
-    border-right:3px solid #00eaff;
-    white-space:nowrap;
+    width:0;
     overflow:hidden;
-    width:max-content;
-    max-width:100%;
+    white-space:nowrap;
+    border-right:3px solid #00eaff;
     animation:
-    typing 4s steps(30) infinite alternate,
+    typing 4s steps(32) infinite alternate,
     blink .7s infinite;
 }
 
 @keyframes typing{
-    from{width:0}
-    to{width:100%}
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:100%;
+    }
 }
 
 @keyframes blink{
-    50%{border-color:transparent}
+
+    50%{
+        border-color:transparent;
+    }
 }
 
-/* BUTTON */
+/* =====================================================
+   BUTTON
+===================================================== */
 
 .btn{
     display:inline-block;
-    margin-top:30px;
-    padding:14px 30px;
-    border:1px solid #ff1744;
-    color:white;
+    margin-top:28px;
+    padding:13px 25px;
+    color:#fff;
     text-decoration:none;
-    border-radius:8px;
+    border:1px solid #ff1744;
+    border-radius:10px;
     background:rgba(255,23,68,.08);
-    box-shadow:0 0 10px rgba(255,23,68,.5);
-    transition:.3s;
+    box-shadow:0 0 12px rgba(255,23,68,.4);
+    transition:.35s;
 }
 
 .btn:hover{
+    transform:translateY(-5px) scale(1.03);
     background:#ff1744;
-    box-shadow:0 0 20px #ff1744;
-    transform:translateY(-4px);
+    box-shadow:
+    0 0 15px #ff1744,
+    0 0 35px rgba(255,23,68,.5);
 }
 
-/* SECTION */
+/* =====================================================
+   SECTIONS
+===================================================== */
 
 section{
     padding:100px 8%;
@@ -407,31 +605,37 @@ section{
 }
 
 .section-title h2{
+    margin-top:10px;
     font-family:'Orbitron',sans-serif;
     font-size:38px;
-    margin-top:10px;
-    text-shadow:0 0 12px rgba(255,23,68,.5);
+    text-shadow:0 0 15px rgba(255,23,68,.5);
 }
 
-/* CARD */
+/* =====================================================
+   CARDS
+===================================================== */
 
 .card{
+    padding:30px;
+    border-radius:20px;
     background:rgba(255,255,255,.045);
     border:1px solid rgba(0,234,255,.15);
-    border-radius:18px;
-    padding:30px;
-    backdrop-filter:blur(12px);
-    box-shadow:0 10px 40px rgba(0,0,0,.3);
+    backdrop-filter:blur(15px);
+    box-shadow:0 15px 50px rgba(0,0,0,.3);
     transition:.4s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-10px);
     border-color:#00eaff;
-    box-shadow:0 0 20px rgba(0,234,255,.15);
+    box-shadow:
+    0 0 20px rgba(0,234,255,.2),
+    0 20px 60px rgba(0,0,0,.4);
 }
 
-/* ABOUT */
+/* =====================================================
+   ABOUT
+===================================================== */
 
 .about-grid{
     display:grid;
@@ -441,18 +645,23 @@ section{
 
 .profile-card{
     text-align:center;
+    animation:cardFloat 5s ease-in-out infinite;
+}
+
+@keyframes cardFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
 }
 
 .profile-icon{
     font-size:65px;
-    margin-bottom:20px;
-    animation:floatIcon 3s ease-in-out infinite;
-}
-
-@keyframes floatIcon{
-    50%{
-        transform:translateY(-10px) rotate(5deg);
-    }
+    margin-bottom:15px;
 }
 
 .profile-card h3{
@@ -461,12 +670,12 @@ section{
 }
 
 .profile-card p{
+    color:#aebdce;
     line-height:1.8;
-    color:#b9c8d9;
 }
 
 .bio-item{
-    padding:14px;
+    padding:15px;
     margin-bottom:12px;
     border-left:3px solid #00eaff;
     background:rgba(0,234,255,.04);
@@ -474,24 +683,26 @@ section{
 }
 
 .bio-item:hover{
-    background:rgba(255,23,68,.1);
-    transform:translateX(7px);
+    transform:translateX(8px);
+    background:rgba(255,23,68,.08);
 }
 
-/* TERMINAL */
+/* =====================================================
+   TERMINAL
+===================================================== */
 
 .terminal{
     max-width:850px;
     margin:auto;
-    background:#05080d;
-    border:1px solid #1d3540;
-    border-radius:15px;
     overflow:hidden;
-    box-shadow:0 0 30px rgba(0,234,255,.08);
+    border-radius:18px;
+    background:#05080d;
+    border:1px solid #203640;
+    box-shadow:0 0 35px rgba(0,234,255,.12);
 }
 
 .terminal-head{
-    padding:12px 18px;
+    padding:13px 18px;
     background:#0c131c;
     color:#8da0b5;
 }
@@ -511,7 +722,19 @@ section{
     color:#00eaff;
 }
 
-/* EDUCATION */
+.cursor{
+    animation:cursorBlink .7s infinite;
+}
+
+@keyframes cursorBlink{
+    50%{
+        opacity:0;
+    }
+}
+
+/* =====================================================
+   EDUCATION
+===================================================== */
 
 .timeline{
     display:grid;
@@ -524,15 +747,17 @@ section{
 
 .timeline-card h3{
     color:#00eaff;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .timeline-card p{
-    color:#b9c8d9;
+    color:#aebdce;
     line-height:1.8;
 }
 
-/* SKILL */
+/* =====================================================
+   SKILLS
+===================================================== */
 
 .skills{
     display:grid;
@@ -547,7 +772,7 @@ section{
 
 .skill-bar{
     height:12px;
-    background:#101722;
+    background:#111923;
     border-radius:20px;
     overflow:hidden;
 }
@@ -562,14 +787,23 @@ section{
         #00eaff
     );
     box-shadow:0 0 15px rgba(0,234,255,.5);
-    animation:skillGlow 2s infinite alternate;
+    animation:skillPulse 2s infinite alternate;
 }
 
-@keyframes skillGlow{
-    to{filter:brightness(1.4)}
+@keyframes skillPulse{
+
+    from{
+        filter:brightness(.9);
+    }
+
+    to{
+        filter:brightness(1.4);
+    }
 }
 
-/* PROJECT */
+/* =====================================================
+   PROJECT
+===================================================== */
 
 .project-grid{
     display:grid;
@@ -585,10 +819,10 @@ section{
 .project::before{
     content:"";
     position:absolute;
-    width:100%;
-    height:2px;
     top:0;
     left:-100%;
+    width:100%;
+    height:2px;
     background:linear-gradient(
         90deg,
         transparent,
@@ -599,7 +833,10 @@ section{
 }
 
 @keyframes scan{
-    to{left:100%}
+
+    to{
+        left:100%;
+    }
 }
 
 .project-icon{
@@ -617,7 +854,9 @@ section{
     line-height:1.7;
 }
 
-/* CONTACT */
+/* =====================================================
+   CONTACT
+===================================================== */
 
 .contact-card{
     max-width:700px;
@@ -627,16 +866,18 @@ section{
 .contact-item{
     padding:18px;
     margin-bottom:15px;
-    background:rgba(0,234,255,.04);
     border-left:3px solid #ff1744;
-    border-radius:8px;
+    background:rgba(0,234,255,.04);
+    border-radius:10px;
 }
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
+    padding:45px 20px;
     text-align:center;
-    padding:40px 20px;
     border-top:1px solid rgba(0,234,255,.15);
     background:#020408;
 }
@@ -647,52 +888,125 @@ footer h3{
 }
 
 footer p{
-    color:#718096;
     margin-top:8px;
+    color:#718096;
 }
 
-/* TOMBOL */
+/* =====================================================
+   FLOAT BUTTON
+===================================================== */
 
 #topBtn,
 #themeBtn{
     position:fixed;
     right:25px;
-    width:45px;
-    height:45px;
-    border:none;
+    width:48px;
+    height:48px;
+    border:0;
     border-radius:50%;
     cursor:pointer;
-    z-index:999;
+    z-index:950;
+    transition:.3s;
 }
 
 #topBtn{
     bottom:25px;
+    color:#fff;
     background:#ff1744;
-    color:white;
     font-size:20px;
     box-shadow:0 0 20px #ff1744;
 }
 
 #themeBtn{
-    bottom:80px;
-    background:white;
+    bottom:85px;
+    background:#fff;
+    color:#111;
     font-size:20px;
+    box-shadow:0 0 15px rgba(255,255,255,.4);
 }
 
-/* RESPONSIVE */
+#topBtn:hover,
+#themeBtn:hover{
+    transform:scale(1.12) rotate(8deg);
+}
 
-@media(max-width:1000px){
+/* =====================================================
+   LIGHT MODE
+===================================================== */
+
+body.light-mode{
+    color:#111;
+    background:#eef5f8;
+}
+
+body.light-mode::before{
+    background-image:
+    linear-gradient(rgba(0,100,120,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,100,120,.08) 1px,transparent 1px);
+}
+
+body.light-mode nav{
+    background:rgba(255,255,255,.9);
+}
+
+body.light-mode nav a{
+    color:#222;
+}
+
+body.light-mode .logo{
+    color:#111;
+}
+
+body.light-mode .card{
+    background:rgba(255,255,255,.75);
+    color:#111;
+}
+
+body.light-mode .hero p,
+body.light-mode .profile-card p,
+body.light-mode .timeline-card p,
+body.light-mode .project p{
+    color:#333;
+}
+
+body.light-mode .terminal{
+    background:#fff;
+}
+
+body.light-mode .terminal-head{
+    background:#e5e7eb;
+    color:#333;
+}
+
+body.light-mode footer{
+    background:#e5e7eb;
+}
+
+body.light-mode #themeBtn{
+    background:#111;
+    color:#fff;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1050px){
 
     nav{
         padding:15px 4%;
     }
 
     nav ul{
-        gap:10px;
+        gap:9px;
     }
 
-    nav ul li a{
-        font-size:11px;
+    nav a{
+        font-size:10px;
+    }
+
+    .hero{
+        gap:50px;
     }
 
     .project-grid{
@@ -715,13 +1029,16 @@ footer p{
     .hero{
         flex-direction:column;
         text-align:center;
-        padding-top:180px;
+        padding-top:190px;
     }
 
     .empty-photo{
-        width:220px;
-        height:220px;
-        font-size:65px;
+        width:225px;
+        height:225px;
+    }
+
+    .hero h2{
+        font-size:18px;
     }
 
     .typing{
@@ -737,36 +1054,59 @@ footer p{
     }
 
     .spider{
-        transform:scale(.75);
+        right:10px;
+        transform:scale(.7);
         transform-origin:top right;
+    }
+
+    .spider-string{
+        right:50px;
     }
 
     section{
         padding:75px 6%;
+    }
+
+    .section-title h2{
+        font-size:30px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
+
+<!-- PARTICLES -->
 
 <div class="particle p1"></div>
 <div class="particle p2"></div>
 <div class="particle p3"></div>
 <div class="particle p4"></div>
 <div class="particle p5"></div>
+<div class="particle p6"></div>
+
+<div class="cursor-glow"></div>
+
+
+<!-- SPIDER WEB -->
 
 <div class="spider-web web-left"></div>
 <div class="spider-web web-right"></div>
+
+
+<!-- SPIDER -->
 
 <div class="spider-string"></div>
 
 <div class="spider">
 
     <div class="spider-body">
+
         <div class="spider-eye left"></div>
         <div class="spider-eye right"></div>
+
     </div>
 
     <div class="leg l1"></div>
@@ -781,6 +1121,9 @@ footer p{
 
 </div>
 
+
+<!-- NAVBAR -->
+
 <nav>
 
 <div class="logo">
@@ -789,21 +1132,31 @@ footer p{
 
 <ul>
 
-<li><a href="#home">Home</a></li>
+<li>
+<a href="#home">Home</a>
+</li>
 
-<li><a href="#about">Tentang</a></li>
+<li>
+<a href="#about">Tentang</a>
+</li>
 
-<li><a href="#education">Pendidikan</a></li>
+<li>
+<a href="#education">Pendidikan</a>
+</li>
 
-<li><a href="#skill">Skill</a></li>
+<li>
+<a href="#skill">Skill</a>
+</li>
 
-<li><a href="#projects">Project</a></li>
+<li>
+<a href="#projects">Project</a>
+</li>
 
 <li>
 <a class="project-link"
 href="https://cutnursilul230619-netizen.github.io/toko-online/"
 target="_blank">
-🛒 Toko Online
+🛒 Toko
 </a>
 </li>
 
@@ -819,25 +1172,37 @@ target="_blank">
 <a class="project-link"
 href="https://cutnursilul230619-netizen.github.io/academic-meet/"
 target="_blank">
-📚 Academic Meet
+📚 Academic
 </a>
 </li>
 
-<li><a href="#contact">Kontak</a></li>
+<li>
+<a href="#contact">
+Kontak
+</a>
+</li>
 
 </ul>
 
 </nav>
+
+
+<!-- HERO -->
 
 <section class="hero" id="home">
 
 <div class="hero-photo">
 
 <div class="empty-photo">
-🕷️
+
+<img
+src="foto-profil.jpg"
+alt="Foto Profil Cut Nursilul">
+
 </div>
 
 </div>
+
 
 <div class="hero-text">
 
@@ -872,732 +1237,7 @@ yang modern, interaktif, dan bermanfaat.
 
 </section>
 
-<section id="about">
 
-<div class="section-title">
+<!-- ABOUT -->
 
-<small>01 / PROFILE</small>
-
-<h2>Tentang Saya</h2>
-
-</div>
-
-<div class="about-grid">
-
-<div class="card profile-card">
-
-<div class="profile-icon">
-👩‍💻
-</div>
-
-<h2>Cut Nursilul</h2>
-
-<h3>Web Designer & Digital Creator</h3>
-
-<p>
-Saya memiliki ketertarikan dalam dunia
-teknologi informasi, web development,
-UI/UX design, dan pengembangan project
-digital.
-
-Saya terus belajar dan mencoba membuat
-website yang modern, responsif, dan
-mudah digunakan.
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>⚡ Biodata</h2>
-
-<br>
-
-<div class="bio-item">
-👤 <b>Nama:</b><br>
-Cut Nursilul
-</div>
-
-<div class="bio-item">
-🎓 <b>Status:</b><br>
-Mahasiswa
-</div>
-
-<div class="bio-item">
-🏫 <b>Universitas:</b><br>
-Universitas Jabal Ghafur
-</div>
-
-<div class="bio-item">
-💻 <b>Program Studi:</b><br>
-Teknik Informatika
-</div>
-
-<div class="bio-item">
-📧 <b>Email:</b><br>
-cutnursilul230619@gmail.com
-</div>
-
-</div>
-
-</div>
-
-</section>
-<section>
-
-<div class="section-title">
-<small>02 / SYSTEM</small>
-<h2>Developer Mode</h2>
-</div>
-
-<div class="terminal">
-
-<div class="terminal-head">
-🔴 🟡 🟢 &nbsp; terminal.exe
-</div>
-
-<div class="terminal-body">
-
-<div>
-<span class="red">user@cutnursilul</span>:~$ whoami
-</div>
-
-<div>
-&gt; Cut Nursilul
-</div>
-
-<div>
-<span class="red">user@cutnursilul</span>:~$ skills
-</div>
-
-<div>
-&gt; HTML / CSS / JavaScript / UI-UX
-</div>
-
-<div>
-<span class="red">user@cutnursilul</span>:~$ projects
-</div>
-
-<div>
-&gt; Toko Online / Mila Dashboard / Academic Meet
-</div>
-
-<div>
-<span class="red">user@cutnursilul</span>:~$ status
-</div>
-
-<div class="blue">
-&gt; ONLINE • READY TO BUILD
-</div>
-
-<div>
-<span class="red">user@cutnursilul</span>:~$ _
-</div>
-
-</div>
-</div>
-
-</section>
-
-
-<!-- =========================
-     PENDIDIKAN
-========================= -->
-
-<section id="education">
-
-<div class="section-title">
-<small>03 / EDUCATION</small>
-<h2>Riwayat Pendidikan</h2>
-</div>
-
-<div class="timeline">
-
-<div class="card timeline-card">
-
-<h3>🎒 SD Negeri 1 Andeue</h3>
-
-<p>
-Tahun Pendidikan: 2010 - 2016
-</p>
-
-</div>
-
-
-<div class="card timeline-card">
-
-<h3>📚 SMP Negeri 2 Mila</h3>
-
-<p>
-Tahun Pendidikan: 2016 - 2019
-</p>
-
-</div>
-
-
-<div class="card timeline-card">
-
-<h3>🎓 SMA Negeri 1 Mila</h3>
-
-<p>
-Tahun Pendidikan: 2019 - 2021
-</p>
-
-</div>
-
-
-<div class="card timeline-card">
-
-<h3>🎓 Universitas Jabal Ghafur</h3>
-
-<p>
-Program Studi: Teknik Informatika
-</p>
-
-<p>
-Fakultas Teknik • 2023 - 2027
-</p>
-
-<p>
-Status: Mahasiswa Aktif
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     SKILL
-========================= -->
-
-<section id="skill">
-
-<div class="section-title">
-
-<small>04 / SKILLS</small>
-
-<h2>My Skills</h2>
-
-</div>
-
-<div class="card skills">
-
-
-<div>
-
-<div class="skill-top">
-<span>HTML</span>
-<span>90%</span>
-</div>
-
-<div class="skill-bar">
-<div class="skill-progress"
-style="width:90%">
-</div>
-</div>
-
-</div>
-
-
-<div>
-
-<div class="skill-top">
-<span>CSS</span>
-<span>85%</span>
-</div>
-
-<div class="skill-bar">
-<div class="skill-progress"
-style="width:85%">
-</div>
-</div>
-
-</div>
-
-
-<div>
-
-<div class="skill-top">
-<span>JavaScript</span>
-<span>70%</span>
-</div>
-
-<div class="skill-bar">
-<div class="skill-progress"
-style="width:70%">
-</div>
-</div>
-
-</div>
-
-
-<div>
-
-<div class="skill-top">
-<span>UI/UX Design</span>
-<span>80%</span>
-</div>
-
-<div class="skill-bar">
-<div class="skill-progress"
-style="width:80%">
-</div>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     PROJECT
-========================= -->
-
-<section id="projects">
-
-<div class="section-title">
-
-<small>05 / PROJECTS</small>
-
-<h2>My Digital Projects</h2>
-
-</div>
-
-
-<div class="project-grid">
-
-
-<!-- TOKO ONLINE -->
-
-<div class="card project">
-
-<div class="project-icon">
-🛒
-</div>
-
-<h3>Toko Online</h3>
-
-<p>
-Website toko online untuk menampilkan
-produk secara digital.
-</p>
-
-<a
-class="btn"
-href="https://cutnursilul230619-netizen.github.io/toko-online/"
-target="_blank">
-
-Buka Toko →
-
-</a>
-
-</div>
-
-
-<!-- MILA -->
-
-<div class="card project">
-
-<div class="project-icon">
-📊
-</div>
-
-<h3>Mila Dashboard</h3>
-
-<p>
-Dashboard digital dengan tampilan
-modern dan interaktif.
-</p>
-
-<a
-class="btn"
-href="https://cutnursilul230619-netizen.github.io/mila-dashboard/"
-target="_blank">
-
-Buka Mila →
-
-</a>
-
-</div>
-
-
-<!-- ACADEMIC MEET -->
-
-<div class="card project">
-
-<div class="project-icon">
-📚
-</div>
-
-<h3>Academic Meet</h3>
-
-<p>
-Project website untuk kebutuhan
-akademik dan pertemuan mahasiswa.
-</p>
-
-<a
-class="btn"
-href="https://cutnursilul230619-netizen.github.io/academic-meet/"
-target="_blank">
-
-Buka Academic Meet →
-
-</a>
-
-</div>
-
-
-<!-- PROFILE -->
-
-<div class="card project">
-
-<div class="project-icon">
-🌐
-</div>
-
-<h3>Digital Portfolio</h3>
-
-<p>
-Website profil digital Cut Nursilul
-dengan desain futuristik.
-</p>
-
-<a
-class="btn"
-href="https://cutnursilul230619-netizen.github.io/profildigital2/"
-target="_blank">
-
-Lihat Website →
-
-</a>
-
-</div>
-
-
-<!-- WEB DESIGN -->
-
-<div class="card project">
-
-<div class="project-icon">
-🎨
-</div>
-
-<h3>UI / UX Design</h3>
-
-<p>
-Membuat konsep tampilan website
-yang modern, responsif dan menarik.
-</p>
-
-<a
-href="#contact"
-class="btn">
-
-Lihat Detail →
-
-</a>
-
-</div>
-
-
-<!-- CODING -->
-
-<div class="card project">
-
-<div class="project-icon">
-💻
-</div>
-
-<h3>Web Development</h3>
-
-<p>
-Mengembangkan berbagai project
-website menggunakan HTML, CSS
-dan JavaScript.
-</p>
-
-<a
-href="#skill"
-class="btn">
-
-My Skills →
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     PENGALAMAN
-========================= -->
-
-<section>
-
-<div class="section-title">
-
-<small>06 / EXPERIENCE</small>
-
-<h2>Pengalaman</h2>
-
-</div>
-
-
-<div class="card">
-
-<p>
-🌐 Membuat website profil digital
-menggunakan HTML, CSS dan JavaScript.
-</p>
-
-<br>
-
-<p>
-🎨 Mendesain tampilan website
-dengan konsep modern dan futuristik.
-</p>
-
-<br>
-
-<p>
-💻 Membuat berbagai project website
-untuk meningkatkan kemampuan coding.
-</p>
-
-<br>
-
-<p>
-📱 Mempelajari desain antarmuka
-aplikasi dan website.
-</p>
-
-<br>
-
-<p>
-🚀 Terus mengembangkan kreativitas
-di bidang teknologi digital.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     KONTAK
-========================= -->
-
-<section id="contact">
-
-<div class="section-title">
-
-<small>07 / CONTACT</small>
-
-<h2>Kontak Saya</h2>
-
-</div>
-
-
-<div class="card contact-card">
-
-
-<div class="contact-item">
-
-📧 <b>Email</b><br>
-
-cutnursilul230619@gmail.com
-
-</div>
-
-
-<div class="contact-item">
-
-📱 <b>WhatsApp</b><br>
-
-083835969176
-
-</div>
-
-
-<div class="contact-item">
-
-📷 <b>Instagram</b><br>
-
-@ilulrs
-
-</div>
-
-
-<div class="contact-item">
-
-💻 <b>Website</b><br>
-
-cutnursilul230619-netizen.github.io
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-<h3>
-🕷️ CUT NURSILUL
-</h3>
-
-<p>
-Digital Portfolio Website
-</p>
-
-<p>
-© 2026 All Rights Reserved
-</p>
-
-<p>
-Web Designer & Digital Creator
-</p>
-
-</footer>
-
-
-<!-- =========================
-     BUTTON
-========================= -->
-
-<button id="topBtn"
-onclick="keAtas()">
-
-↑
-
-</button>
-
-
-<button id="themeBtn">
-
-🌙
-
-</button>
-
-
-<script>
-
-/* =========================
-   KEMBALI KE ATAS
-========================= */
-
-function keAtas(){
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-}
-
-
-/* =========================
-   MODE TERANG / GELAP
-========================= */
-
-const themeBtn =
-document.getElementById("themeBtn");
-
-
-themeBtn.onclick=function(){
-
-document.body.classList.toggle(
-"light-mode"
-);
-
-
-if(
-document.body.classList.contains(
-"light-mode"
-)
-){
-
-themeBtn.innerHTML="☀️";
-
-}else{
-
-themeBtn.innerHTML="🌙";
-
-}
-
-};
-
-
-/* =========================
-   EFEK MOUSE
-========================= */
-
-document.addEventListener(
-"mousemove",
-function(e){
-
-const spider =
-document.querySelector(".spider");
-
-const x =
-(e.clientX / window.innerWidth - .5) * 15;
-
-const y =
-(e.clientY / window.innerHeight - .5) * 15;
-
-spider.style.marginLeft =
-x + "px";
-
-spider.style.marginTop =
-y + "px";
-
-});
-
-
-/* =========================
-   CONSOLE
-========================= */
-
-console.log(
-"🕷️ Cut Nursilul Portfolio Aktif"
-);
-
-console.log(
-"🚀 System Online"
-);
-
-console.log(
-"📊 Mila Dashboard Connected"
-);
-
-console.log(
-"📚 Academic Meet Connected"
-);
-
-console.log(
-"🛒 Toko Online Connected"
-);
-
-</script>
-
-</body>
-
-</html>
+<section
