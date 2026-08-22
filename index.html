@@ -11,6 +11,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+
 <style>
 
 /* =========================
@@ -28,10 +29,13 @@ html{
 }
 
 body{
+
     font-family:'Poppins',sans-serif;
+
     color:white;
 
     background:
+
     radial-gradient(
         circle at 10% 20%,
         rgba(255,0,70,.25),
@@ -65,11 +69,15 @@ body{
 ========================= */
 
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
 
     background-image:
+
     linear-gradient(
         rgba(0,234,255,.05) 1px,
         transparent 1px
@@ -84,9 +92,11 @@ body::before{
     background-size:50px 50px;
 
     pointer-events:none;
+
     z-index:-10;
 
-    animation:gridMove 15s linear infinite;
+    animation:
+    gridMove 15s linear infinite;
 }
 
 @keyframes gridMove{
@@ -103,10 +113,11 @@ body::before{
 
 
 /* =========================
-   PARTIKEL
+   PARTICLE
 ========================= */
 
 .particle{
+
     position:fixed;
 
     width:3px;
@@ -178,10 +189,11 @@ body::before{
 
 
 /* =========================
-   JARING
+   JARING LABA-LABA
 ========================= */
 
 .spider-web{
+
     position:fixed;
 
     width:400px;
@@ -189,13 +201,16 @@ body::before{
 
     border-radius:50%;
 
-    border:1px solid rgba(255,255,255,.15);
+    border:
+    1px solid rgba(255,255,255,.15);
 
     pointer-events:none;
 
     z-index:-4;
 
     opacity:.7;
+
+    transition:.5s;
 }
 
 .spider-web::before,
@@ -211,7 +226,8 @@ body::before{
     top:50%;
     left:0;
 
-    background:rgba(255,255,255,.12);
+    background:
+    rgba(255,255,255,.12);
 }
 
 .spider-web::after{
@@ -219,6 +235,7 @@ body::before{
 }
 
 .web-left{
+
     left:-220px;
     top:120px;
 
@@ -227,6 +244,7 @@ body::before{
 }
 
 .web-right{
+
     right:-220px;
     bottom:-100px;
 
@@ -270,6 +288,8 @@ body::before{
     );
 
     z-index:999;
+
+    transition:.5s;
 }
 
 .spider{
@@ -288,6 +308,8 @@ body::before{
 
     animation:
     spiderDrop 6s ease-in-out infinite;
+
+    transition:.5s;
 }
 
 .spider-body{
@@ -301,6 +323,7 @@ body::before{
     top:20px;
 
     background:
+
     radial-gradient(
         circle at 50% 35%,
         #ff334f 0 8%,
@@ -309,7 +332,8 @@ body::before{
 
     border-radius:50%;
 
-    border:2px solid #ff1744;
+    border:
+    2px solid #ff1744;
 
     box-shadow:
     0 0 8px #ff1744,
@@ -350,7 +374,8 @@ body::before{
 
     background:#111;
 
-    border:1px solid #ff1744;
+    border:
+    1px solid #ff1744;
 
     border-radius:10px;
 
@@ -459,9 +484,11 @@ nav{
     display:flex;
 
     justify-content:space-between;
+
     align-items:center;
 
-    background:rgba(2,5,10,.82);
+    background:
+    rgba(2,5,10,.82);
 
     backdrop-filter:blur(15px);
 
@@ -470,8 +497,7 @@ nav{
 
     z-index:1000;
 
-    transition:
-    background .5s ease;
+    transition:.5s;
 }
 
 .logo{
@@ -575,6 +601,9 @@ nav ul li a:hover{
 
 }
 
+
+/* ICON / GAMBAR UTAMA */
+
 .empty-photo{
 
     width:280px;
@@ -605,6 +634,12 @@ nav ul li a:hover{
 
     animation:
     heroFloat 4s ease-in-out infinite;
+
+    transition:
+    background .5s ease,
+    border .5s ease,
+    box-shadow .5s ease,
+    font-size .5s ease;
 }
 
 @keyframes heroFloat{
@@ -1217,7 +1252,7 @@ footer p{
 
     font-size:20px;
 
-    transition:.3s;
+    transition:.4s;
 }
 
 
@@ -1253,7 +1288,7 @@ body.light-mode{
 }
 
 
-/* GRID LIGHT */
+/* GRID TERANG */
 
 body.light-mode::before{
 
@@ -1272,7 +1307,7 @@ body.light-mode::before{
 }
 
 
-/* NAVBAR LIGHT */
+/* NAVBAR TERANG */
 
 body.light-mode nav{
 
@@ -1300,7 +1335,7 @@ body.light-mode nav ul li a:hover{
 }
 
 
-/* HERO LIGHT */
+/* HERO TERANG */
 
 body.light-mode .hero h1{
     color:#111827;
@@ -1319,7 +1354,44 @@ body.light-mode .small-title{
 }
 
 
-/* CARD LIGHT */
+/* MOBIL BALAP MODE TERANG */
+
+body.light-mode .empty-photo{
+
+    background:
+
+    radial-gradient(
+        circle,
+        #ffffff,
+        #dbeafe
+    );
+
+    border:
+    5px solid #ff1744;
+
+    box-shadow:
+
+    0 0 15px #ff1744,
+
+    0 0 40px
+    rgba(255,23,68,.5);
+
+    font-size:85px;
+}
+
+
+/* LABA-LABA POJOK DIHILANGKAN SAAT TERANG */
+
+body.light-mode .spider,
+body.light-mode .spider-string,
+body.light-mode .spider-web{
+
+    opacity:0;
+
+}
+
+
+/* CARD TERANG */
 
 body.light-mode .card{
 
@@ -1338,18 +1410,19 @@ body.light-mode .card:hover{
     border-color:#0099bb;
 
     box-shadow:
-    0 0 20px rgba(0,150,180,.18);
+    0 0 20px
+    rgba(0,150,180,.18);
 }
 
 
-/* PROFILE LIGHT */
+/* PROFILE TERANG */
 
 body.light-mode .profile-card p{
     color:#4b5563;
 }
 
 
-/* BIODATA LIGHT */
+/* BIODATA TERANG */
 
 body.light-mode .bio-item{
 
@@ -1366,7 +1439,7 @@ body.light-mode .bio-item:hover{
 }
 
 
-/* SECTION LIGHT */
+/* SECTION TERANG */
 
 body.light-mode .section-title h2{
     color:#111827;
@@ -1390,28 +1463,28 @@ body.light-mode .terminal-head{
 }
 
 
-/* EDUCATION LIGHT */
+/* EDUCATION TERANG */
 
 body.light-mode .timeline-card p{
     color:#4b5563;
 }
 
 
-/* SKILL LIGHT */
+/* SKILL TERANG */
 
 body.light-mode .skill-bar{
     background:#dbe3ec;
 }
 
 
-/* PROJECT LIGHT */
+/* PROJECT TERANG */
 
 body.light-mode .project p{
     color:#4b5563;
 }
 
 
-/* CONTACT LIGHT */
+/* CONTACT TERANG */
 
 body.light-mode .contact-item{
 
@@ -1422,7 +1495,7 @@ body.light-mode .contact-item{
 }
 
 
-/* FOOTER LIGHT */
+/* FOOTER TERANG */
 
 body.light-mode footer{
 
@@ -1437,7 +1510,7 @@ body.light-mode footer p{
 }
 
 
-/* THEME BUTTON LIGHT */
+/* TOMBOL TEMA TERANG */
 
 body.light-mode #themeBtn{
 
@@ -1446,7 +1519,8 @@ body.light-mode #themeBtn{
     color:white;
 
     box-shadow:
-    0 0 15px rgba(0,0,0,.25);
+    0 0 15px
+    rgba(0,0,0,.25);
 }
 
 
@@ -1508,6 +1582,10 @@ body.light-mode #themeBtn{
         font-size:65px;
     }
 
+    body.light-mode .empty-photo{
+        font-size:70px;
+    }
+
     .typing{
         margin:auto;
     }
@@ -1542,9 +1620,7 @@ body.light-mode #themeBtn{
 <body>
 
 
-<!-- =========================
-     PARTICLE
-========================= -->
+<!-- PARTICLE -->
 
 <div class="particle p1"></div>
 <div class="particle p2"></div>
@@ -1553,21 +1629,15 @@ body.light-mode #themeBtn{
 <div class="particle p5"></div>
 
 
-<!-- =========================
-     SPIDER WEB
-========================= -->
+<!-- SPIDER WEB -->
 
 <div class="spider-web web-left"></div>
-
 <div class="spider-web web-right"></div>
 
 
-<!-- =========================
-     SPIDER
-========================= -->
+<!-- SPIDER -->
 
 <div class="spider-string"></div>
-
 
 <div class="spider">
 
@@ -1578,7 +1648,6 @@ body.light-mode #themeBtn{
         <div class="spider-eye right"></div>
 
     </div>
-
 
     <div class="leg l1"></div>
     <div class="leg l2"></div>
@@ -1593,12 +1662,9 @@ body.light-mode #themeBtn{
 </div>
 
 
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- NAVBAR -->
 
 <nav>
-
 
 <div class="logo">
 
@@ -1612,39 +1678,24 @@ CUT NURSILUL
 <ul>
 
 <li>
-<a href="#home">
-Home
-</a>
+<a href="#home">Home</a>
 </li>
-
 
 <li>
-<a href="#about">
-Tentang
-</a>
+<a href="#about">Tentang</a>
 </li>
-
 
 <li>
-<a href="#education">
-Pendidikan
-</a>
+<a href="#education">Pendidikan</a>
 </li>
-
 
 <li>
-<a href="#skill">
-Skill
-</a>
+<a href="#skill">Skill</a>
 </li>
-
 
 <li>
-<a href="#projects">
-Project
-</a>
+<a href="#projects">Project</a>
 </li>
-
 
 <li>
 
@@ -1659,7 +1710,6 @@ target="_blank">
 
 </li>
 
-
 <li>
 
 <a
@@ -1672,7 +1722,6 @@ target="_blank">
 </a>
 
 </li>
-
 
 <li>
 
@@ -1687,32 +1736,23 @@ target="_blank">
 
 </li>
 
-
 <li>
-<a href="#contact">
-Kontak
-</a>
+<a href="#contact">Kontak</a>
 </li>
 
 </ul>
 
-
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
-<section
-class="hero"
-id="home"
->
+<section class="hero" id="home">
 
 
 <div class="hero-photo">
 
-<div class="empty-photo">
+<div class="empty-photo" id="profileIcon">
 
 🕷️
 
@@ -1722,7 +1762,6 @@ id="home"
 
 
 <div class="hero-text">
-
 
 <div class="small-title">
 
@@ -1770,28 +1809,20 @@ class="btn"
 
 </a>
 
-
 </div>
 
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
-
 <div class="section-title">
 
-<small>
-01 / PROFILE
-</small>
+<small>01 / PROFILE</small>
 
-<h2>
-Tentang Saya
-</h2>
+<h2>Tentang Saya</h2>
 
 </div>
 
@@ -1801,21 +1832,15 @@ Tentang Saya
 
 <div class="card profile-card">
 
-
 <div class="profile-icon">
 👩‍💻
 </div>
 
-
-<h2>
-Cut Nursilul
-</h2>
-
+<h2>Cut Nursilul</h2>
 
 <h3>
 Web Designer & Digital Creator
 </h3>
-
 
 <p>
 
@@ -1830,16 +1855,12 @@ mudah digunakan.
 
 </p>
 
-
 </div>
 
 
 <div class="card">
 
-
-<h2>
-⚡ Biodata
-</h2>
+<h2>⚡ Biodata</h2>
 
 <br>
 
@@ -1906,28 +1927,20 @@ cutnursilul230619@gmail.com
 </section>
 
 
-<!-- =========================
-     DEVELOPER MODE
-========================= -->
+<!-- DEVELOPER -->
 
 <section>
 
-
 <div class="section-title">
 
-<small>
-02 / SYSTEM
-</small>
+<small>02 / SYSTEM</small>
 
-<h2>
-Developer Mode
-</h2>
+<h2>Developer Mode</h2>
 
 </div>
 
 
 <div class="terminal">
-
 
 <div class="terminal-head">
 
@@ -1938,7 +1951,6 @@ Developer Mode
 
 <div class="terminal-body">
 
-
 <div>
 
 <span class="red">
@@ -1947,11 +1959,9 @@ user@cutnursilul
 
 </div>
 
-
 <div>
 &gt; Cut Nursilul
 </div>
-
 
 <div>
 
@@ -1961,11 +1971,9 @@ user@cutnursilul
 
 </div>
 
-
 <div>
 &gt; HTML / CSS / JavaScript / UI-UX
 </div>
-
 
 <div>
 
@@ -1975,11 +1983,9 @@ user@cutnursilul
 
 </div>
 
-
 <div>
 &gt; Toko Online / Mila Dashboard / Academic Meet
 </div>
-
 
 <div>
 
@@ -1989,13 +1995,11 @@ user@cutnursilul
 
 </div>
 
-
 <div class="blue">
 
 &gt; ONLINE • READY TO BUILD
 
 </div>
-
 
 <div>
 
@@ -2005,7 +2009,6 @@ user@cutnursilul
 
 </div>
 
-
 </div>
 
 </div>
@@ -2013,22 +2016,15 @@ user@cutnursilul
 </section>
 
 
-<!-- =========================
-     PENDIDIKAN
-========================= -->
+<!-- PENDIDIKAN -->
 
 <section id="education">
 
-
 <div class="section-title">
 
-<small>
-03 / EDUCATION
-</small>
+<small>03 / EDUCATION</small>
 
-<h2>
-Riwayat Pendidikan
-</h2>
+<h2>Riwayat Pendidikan</h2>
 
 </div>
 
@@ -2095,28 +2091,20 @@ Status: Mahasiswa Aktif
 
 </div>
 
-
 </div>
 
 </section>
 
 
-<!-- =========================
-     SKILL
-========================= -->
+<!-- SKILL -->
 
 <section id="skill">
 
-
 <div class="section-title">
 
-<small>
-04 / SKILLS
-</small>
+<small>04 / SKILLS</small>
 
-<h2>
-My Skills
-</h2>
+<h2>My Skills</h2>
 
 </div>
 
@@ -2128,16 +2116,11 @@ My Skills
 
 <div class="skill-top">
 
-<span>
-HTML
-</span>
+<span>HTML</span>
 
-<span>
-90%
-</span>
+<span>90%</span>
 
 </div>
-
 
 <div class="skill-bar">
 
@@ -2155,16 +2138,11 @@ style="width:90%"
 
 <div class="skill-top">
 
-<span>
-CSS
-</span>
+<span>CSS</span>
 
-<span>
-85%
-</span>
+<span>85%</span>
 
 </div>
-
 
 <div class="skill-bar">
 
@@ -2182,16 +2160,11 @@ style="width:85%"
 
 <div class="skill-top">
 
-<span>
-JavaScript
-</span>
+<span>JavaScript</span>
 
-<span>
-70%
-</span>
+<span>70%</span>
 
 </div>
-
 
 <div class="skill-bar">
 
@@ -2209,16 +2182,11 @@ style="width:70%"
 
 <div class="skill-top">
 
-<span>
-UI/UX Design
-</span>
+<span>UI/UX Design</span>
 
-<span>
-80%
-</span>
+<span>80%</span>
 
 </div>
-
 
 <div class="skill-bar">
 
@@ -2237,22 +2205,15 @@ style="width:80%"
 </section>
 
 
-<!-- =========================
-     PROJECT
-========================= -->
+<!-- PROJECT -->
 
 <section id="projects">
 
-
 <div class="section-title">
 
-<small>
-05 / PROJECTS
-</small>
+<small>05 / PROJECTS</small>
 
-<h2>
-My Digital Projects
-</h2>
+<h2>My Digital Projects</h2>
 
 </div>
 
@@ -2260,25 +2221,18 @@ My Digital Projects
 <div class="project-grid">
 
 
-<!-- TOKO ONLINE -->
-
 <div class="card project">
 
 <div class="project-icon">
 🛒
 </div>
 
-<h3>
-Toko Online
-</h3>
+<h3>Toko Online</h3>
 
 <p>
-
 Website toko online untuk menampilkan
 produk secara digital.
-
 </p>
-
 
 <a
 class="btn"
@@ -2293,25 +2247,18 @@ Buka Toko →
 </div>
 
 
-<!-- MILA -->
-
 <div class="card project">
 
 <div class="project-icon">
 📊
 </div>
 
-<h3>
-Mila Dashboard
-</h3>
+<h3>Mila Dashboard</h3>
 
 <p>
-
 Dashboard digital dengan tampilan
 modern dan interaktif.
-
 </p>
-
 
 <a
 class="btn"
@@ -2326,25 +2273,18 @@ Buka Mila →
 </div>
 
 
-<!-- ACADEMIC MEET -->
-
 <div class="card project">
 
 <div class="project-icon">
 📚
 </div>
 
-<h3>
-Academic Meet
-</h3>
+<h3>Academic Meet</h3>
 
 <p>
-
 Project website untuk kebutuhan
 akademik dan pertemuan mahasiswa.
-
 </p>
-
 
 <a
 class="btn"
@@ -2359,25 +2299,18 @@ Buka Academic Meet →
 </div>
 
 
-<!-- PROFILE -->
-
 <div class="card project">
 
 <div class="project-icon">
 🌐
 </div>
 
-<h3>
-Digital Portfolio
-</h3>
+<h3>Digital Portfolio</h3>
 
 <p>
-
 Website profil digital Cut Nursilul
 dengan desain futuristik.
-
 </p>
-
 
 <a
 class="btn"
@@ -2392,25 +2325,18 @@ Lihat Website →
 </div>
 
 
-<!-- WEB DESIGN -->
-
 <div class="card project">
 
 <div class="project-icon">
 🎨
 </div>
 
-<h3>
-UI / UX Design
-</h3>
+<h3>UI / UX Design</h3>
 
 <p>
-
 Membuat konsep tampilan website
 yang modern, responsif dan menarik.
-
 </p>
-
 
 <a
 href="#contact"
@@ -2424,26 +2350,19 @@ Lihat Detail →
 </div>
 
 
-<!-- CODING -->
-
 <div class="card project">
 
 <div class="project-icon">
 💻
 </div>
 
-<h3>
-Web Development
-</h3>
+<h3>Web Development</h3>
 
 <p>
-
 Mengembangkan berbagai project
 website menggunakan HTML, CSS
 dan JavaScript.
-
 </p>
-
 
 <a
 href="#skill"
@@ -2462,98 +2381,68 @@ My Skills →
 </section>
 
 
-<!-- =========================
-     PENGALAMAN
-========================= -->
+<!-- PENGALAMAN -->
 
 <section>
 
-
 <div class="section-title">
 
-<small>
-06 / EXPERIENCE
-</small>
+<small>06 / EXPERIENCE</small>
 
-<h2>
-Pengalaman
-</h2>
+<h2>Pengalaman</h2>
 
 </div>
 
 
 <div class="card">
 
-
 <p>
-
 🌐 Membuat website profil digital
 menggunakan HTML, CSS dan JavaScript.
-
 </p>
 
 <br>
 
-
 <p>
-
 🎨 Mendesain tampilan website
 dengan konsep modern dan futuristik.
-
 </p>
 
 <br>
 
-
 <p>
-
 💻 Membuat berbagai project website
 untuk meningkatkan kemampuan coding.
-
 </p>
 
 <br>
 
-
 <p>
-
 📱 Mempelajari desain antarmuka
 aplikasi dan website.
-
 </p>
 
 <br>
 
-
 <p>
-
 🚀 Terus mengembangkan kreativitas
 di bidang teknologi digital.
-
 </p>
-
 
 </div>
 
 </section>
 
 
-<!-- =========================
-     KONTAK
-========================= -->
+<!-- KONTAK -->
 
 <section id="contact">
 
-
 <div class="section-title">
 
-<small>
-07 / CONTACT
-</small>
+<small>07 / CONTACT</small>
 
-<h2>
-Kontak Saya
-</h2>
+<h2>Kontak Saya</h2>
 
 </div>
 
@@ -2610,39 +2499,30 @@ cutnursilul230619-netizen.github.io
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
-
 
 <h3>
 🕷️ CUT NURSILUL
 </h3>
 
-
 <p>
 Digital Portfolio Website
 </p>
-
 
 <p>
 © 2026 All Rights Reserved
 </p>
 
-
 <p>
 Web Designer & Digital Creator
 </p>
 
-
 </footer>
 
 
-<!-- =========================
-     BUTTON
-========================= -->
+<!-- BUTTON -->
 
 <button
 id="topBtn"
@@ -2687,20 +2567,22 @@ function keAtas(){
 
 /* =========================
    MODE TERANG / GELAP
-   DENGAN LOCAL STORAGE
 ========================= */
 
 const themeBtn =
 document.getElementById("themeBtn");
 
+const profileIcon =
+document.getElementById("profileIcon");
 
-/* Cek tema yang tersimpan */
+
+/* =========================
+   CEK TEMA TERSIMPAN
+========================= */
 
 const savedTheme =
 localStorage.getItem("theme");
 
-
-/* Jika sebelumnya mode terang */
 
 if(savedTheme === "light"){
 
@@ -2708,22 +2590,32 @@ if(savedTheme === "light"){
         "light-mode"
     );
 
-    themeBtn.innerHTML = "☀️";
+    themeBtn.innerHTML =
+    "☀️";
 
     themeBtn.title =
     "Kembali ke mode gelap";
 
+    profileIcon.innerHTML =
+    "🏎️";
+
 }else{
 
-    themeBtn.innerHTML = "🌙";
+    themeBtn.innerHTML =
+    "🌙";
 
     themeBtn.title =
     "Aktifkan mode terang";
 
+    profileIcon.innerHTML =
+    "🕷️";
+
 }
 
 
-/* Ketika tombol ditekan */
+/* =========================
+   KLIK TOMBOL TEMA
+========================= */
 
 themeBtn.addEventListener(
 "click",
@@ -2744,16 +2636,19 @@ function(){
         )
     ){
 
-        themeBtn.innerHTML = "☀️";
+        themeBtn.innerHTML =
+        "☀️";
 
         themeBtn.title =
         "Kembali ke mode gelap";
+
+        profileIcon.innerHTML =
+        "🏎️";
 
         localStorage.setItem(
             "theme",
             "light"
         );
-
 
     }
 
@@ -2764,10 +2659,14 @@ function(){
 
     else{
 
-        themeBtn.innerHTML = "🌙";
+        themeBtn.innerHTML =
+        "🌙";
 
         themeBtn.title =
         "Aktifkan mode terang";
+
+        profileIcon.innerHTML =
+        "🕷️";
 
         localStorage.setItem(
             "theme",
@@ -2780,7 +2679,7 @@ function(){
 
 
 /* =========================
-   EFEK MOUSE
+   EFEK MOUSE LABA-LABA
 ========================= */
 
 document.addEventListener(
@@ -2844,7 +2743,7 @@ console.log(
 );
 
 console.log(
-"🌙 Light/Dark Mode Connected"
+"🏎️ Light Mode Racing Connected"
 );
 
 </script>
