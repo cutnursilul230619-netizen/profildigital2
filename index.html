@@ -2,7 +2,9 @@
 <html lang="id">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Cut Nursilul | Digital Portfolio</title>
@@ -10,6 +12,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -24,81 +30,187 @@ html{
 body{
     font-family:'Poppins',sans-serif;
     color:white;
+
     background:
-    radial-gradient(circle at 10% 20%,rgba(255,0,70,.25),transparent 30%),
-    radial-gradient(circle at 90% 30%,rgba(0,220,255,.20),transparent 30%),
-    radial-gradient(circle at 50% 90%,rgba(120,0,255,.20),transparent 35%),
+    radial-gradient(
+        circle at 10% 20%,
+        rgba(255,0,70,.25),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 90% 30%,
+        rgba(0,220,255,.20),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 50% 90%,
+        rgba(120,0,255,.20),
+        transparent 35%
+    ),
+
     #03050a;
+
     overflow-x:hidden;
+
+    transition:
+    background .5s ease,
+    color .5s ease;
 }
 
-/* GRID */
+
+/* =========================
+   GRID
+========================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
+
     background-image:
-    linear-gradient(rgba(0,234,255,.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,234,255,.05) 1px,transparent 1px);
+    linear-gradient(
+        rgba(0,234,255,.05) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(0,234,255,.05) 1px,
+        transparent 1px
+    );
+
     background-size:50px 50px;
+
     pointer-events:none;
     z-index:-10;
+
     animation:gridMove 15s linear infinite;
 }
 
 @keyframes gridMove{
-    from{transform:translateY(0)}
-    to{transform:translateY(50px)}
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(50px);
+    }
+
 }
 
-/* PARTIKEL */
+
+/* =========================
+   PARTIKEL
+========================= */
 
 .particle{
     position:fixed;
+
     width:3px;
     height:3px;
+
     background:#00eaff;
+
     border-radius:50%;
-    box-shadow:0 0 8px #00eaff,0 0 15px #00eaff;
+
+    box-shadow:
+    0 0 8px #00eaff,
+    0 0 15px #00eaff;
+
     pointer-events:none;
+
     z-index:-5;
-    animation:particleMove linear infinite;
+
+    animation:
+    particleMove linear infinite;
 }
 
-.p1{top:20%;left:15%;animation-duration:8s}
-.p2{top:70%;left:30%;animation-duration:12s}
-.p3{top:40%;left:80%;animation-duration:10s}
-.p4{top:85%;left:70%;animation-duration:15s}
-.p5{top:15%;left:60%;animation-duration:9s}
+.p1{
+    top:20%;
+    left:15%;
+    animation-duration:8s;
+}
+
+.p2{
+    top:70%;
+    left:30%;
+    animation-duration:12s;
+}
+
+.p3{
+    top:40%;
+    left:80%;
+    animation-duration:10s;
+}
+
+.p4{
+    top:85%;
+    left:70%;
+    animation-duration:15s;
+}
+
+.p5{
+    top:15%;
+    left:60%;
+    animation-duration:9s;
+}
 
 @keyframes particleMove{
-    0%{transform:translateY(0);opacity:.2}
-    50%{opacity:1}
-    100%{transform:translateY(-120px);opacity:0}
+
+    0%{
+        transform:translateY(0);
+        opacity:.2;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+
 }
 
-/* JARING */
+
+/* =========================
+   JARING
+========================= */
 
 .spider-web{
     position:fixed;
+
     width:400px;
     height:400px;
+
     border-radius:50%;
+
     border:1px solid rgba(255,255,255,.15);
+
     pointer-events:none;
+
     z-index:-4;
+
     opacity:.7;
 }
 
 .spider-web::before,
 .spider-web::after{
+
     content:"";
+
     position:absolute;
+
     width:100%;
     height:1px;
+
     top:50%;
     left:0;
+
     background:rgba(255,255,255,.12);
 }
 
@@ -109,75 +221,116 @@ body::before{
 .web-left{
     left:-220px;
     top:120px;
-    animation:webSpin 25s linear infinite;
+
+    animation:
+    webSpin 25s linear infinite;
 }
 
 .web-right{
     right:-220px;
     bottom:-100px;
-    animation:webSpin 30s linear infinite reverse;
+
+    animation:
+    webSpin 30s linear infinite reverse;
 }
 
 @keyframes webSpin{
-    from{transform:rotate(0)}
-    to{transform:rotate(360deg)}
+
+    from{
+        transform:rotate(0);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
 }
 
-/* LABA-LABA */
+
+/* =========================
+   LABA-LABA
+========================= */
 
 .spider-string{
+
     position:fixed;
+
     top:0;
     right:90px;
+
     width:2px;
     height:150px;
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         to bottom,
         transparent,
         white,
         #ff1744
     );
+
     z-index:999;
 }
 
 .spider{
+
     position:fixed;
+
     top:130px;
     right:35px;
+
     width:100px;
     height:100px;
+
     z-index:1000;
+
     pointer-events:none;
-    animation:spiderDrop 6s ease-in-out infinite;
+
+    animation:
+    spiderDrop 6s ease-in-out infinite;
 }
 
 .spider-body{
+
     position:absolute;
+
     width:45px;
     height:60px;
+
     left:28px;
     top:20px;
+
     background:
     radial-gradient(
         circle at 50% 35%,
         #ff334f 0 8%,
         #080808 9% 100%
     );
+
     border-radius:50%;
+
     border:2px solid #ff1744;
+
     box-shadow:
     0 0 8px #ff1744,
     0 0 20px rgba(255,23,68,.8);
 }
 
 .spider-eye{
+
     position:absolute;
+
     width:7px;
     height:7px;
+
     top:15px;
+
     background:white;
+
     border-radius:50%;
-    box-shadow:0 0 8px white;
+
+    box-shadow:
+    0 0 8px white;
 }
 
 .spider-eye.left{
@@ -189,55 +342,149 @@ body::before{
 }
 
 .leg{
+
     position:absolute;
+
     width:55px;
     height:5px;
+
     background:#111;
+
     border:1px solid #ff1744;
+
     border-radius:10px;
-    box-shadow:0 0 5px #ff1744;
+
+    box-shadow:
+    0 0 5px #ff1744;
 }
 
-.l1{left:-18px;top:25px;transform:rotate(25deg)}
-.l2{left:-25px;top:40px;transform:rotate(5deg)}
-.l3{left:-25px;top:55px;transform:rotate(-15deg)}
-.l4{left:-18px;top:70px;transform:rotate(-30deg)}
+.l1{
+    left:-18px;
+    top:25px;
+    transform:rotate(25deg);
+}
 
-.r1{right:-18px;top:25px;transform:rotate(-25deg)}
-.r2{right:-25px;top:40px;transform:rotate(-5deg)}
-.r3{right:-25px;top:55px;transform:rotate(15deg)}
-.r4{right:-18px;top:70px;transform:rotate(30deg)}
+.l2{
+    left:-25px;
+    top:40px;
+    transform:rotate(5deg);
+}
+
+.l3{
+    left:-25px;
+    top:55px;
+    transform:rotate(-15deg);
+}
+
+.l4{
+    left:-18px;
+    top:70px;
+    transform:rotate(-30deg);
+}
+
+.r1{
+    right:-18px;
+    top:25px;
+    transform:rotate(-25deg);
+}
+
+.r2{
+    right:-25px;
+    top:40px;
+    transform:rotate(-5deg);
+}
+
+.r3{
+    right:-25px;
+    top:55px;
+    transform:rotate(15deg);
+}
+
+.r4{
+    right:-18px;
+    top:70px;
+    transform:rotate(30deg);
+}
 
 @keyframes spiderDrop{
-    0%{transform:translateY(-20px) rotate(-5deg)}
-    25%{transform:translateY(100px) rotate(5deg)}
-    50%{transform:translateY(220px) rotate(-5deg)}
-    75%{transform:translateY(100px) rotate(5deg)}
-    100%{transform:translateY(-20px) rotate(-5deg)}
+
+    0%{
+        transform:
+        translateY(-20px)
+        rotate(-5deg);
+    }
+
+    25%{
+        transform:
+        translateY(100px)
+        rotate(5deg);
+    }
+
+    50%{
+        transform:
+        translateY(220px)
+        rotate(-5deg);
+    }
+
+    75%{
+        transform:
+        translateY(100px)
+        rotate(5deg);
+    }
+
+    100%{
+        transform:
+        translateY(-20px)
+        rotate(-5deg);
+    }
+
 }
 
-/* NAVBAR */
+
+/* =========================
+   NAVBAR
+========================= */
 
 nav{
+
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
+
     padding:18px 6%;
+
     display:flex;
+
     justify-content:space-between;
     align-items:center;
+
     background:rgba(2,5,10,.82);
+
     backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(0,234,255,.25);
+
+    border-bottom:
+    1px solid rgba(0,234,255,.25);
+
     z-index:1000;
+
+    transition:
+    background .5s ease;
 }
 
 .logo{
+
     font-family:'Orbitron',sans-serif;
+
     font-size:22px;
+
     font-weight:800;
-    text-shadow:0 0 5px #ff1744,0 0 15px #ff1744;
+
+    text-shadow:
+    0 0 5px #ff1744,
+    0 0 15px #ff1744;
 }
 
 .logo span{
@@ -245,37 +492,58 @@ nav{
 }
 
 nav ul{
+
     display:flex;
+
     list-style:none;
+
     gap:18px;
+
     align-items:center;
 }
 
 nav ul li a{
+
     color:#ddd;
+
     text-decoration:none;
+
     font-size:13px;
+
     transition:.3s;
 }
 
 nav ul li a:hover{
+
     color:#00eaff;
-    text-shadow:0 0 8px #00eaff;
+
+    text-shadow:
+    0 0 8px #00eaff;
 }
 
 .project-link{
     color:#00eaff !important;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
+
     min-height:100vh;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:80px;
-    padding:140px 8% 70px;
+
+    padding:
+    140px 8% 70px;
 }
 
 .hero-photo{
@@ -283,37 +551,72 @@ nav ul li a:hover{
 }
 
 .hero-photo::before{
+
     content:"";
+
     position:absolute;
+
     inset:-15px;
+
     border-radius:50%;
-    border:2px dashed #ff1744;
-    animation:photoSpin 15s linear infinite;
+
+    border:
+    2px dashed #ff1744;
+
+    animation:
+    photoSpin 15s linear infinite;
 }
 
 @keyframes photoSpin{
-    to{transform:rotate(360deg)}
+
+    to{
+        transform:rotate(360deg);
+    }
+
 }
 
 .empty-photo{
+
     width:280px;
     height:280px;
+
     border-radius:50%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     font-size:80px;
-    background:radial-gradient(circle,#171c2b,#03050a);
-    border:5px solid #ff1744;
+
+    background:
+    radial-gradient(
+        circle,
+        #171c2b,
+        #03050a
+    );
+
+    border:
+    5px solid #ff1744;
+
     box-shadow:
     0 0 15px #ff1744,
     0 0 40px rgba(255,23,68,.6);
-    animation:heroFloat 4s ease-in-out infinite;
+
+    animation:
+    heroFloat 4s ease-in-out infinite;
 }
 
 @keyframes heroFloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
 }
 
 .hero-text{
@@ -321,17 +624,27 @@ nav ul li a:hover{
 }
 
 .small-title{
+
     color:#00eaff;
+
     font-family:'Orbitron',sans-serif;
+
     letter-spacing:4px;
+
     margin-bottom:15px;
 }
 
 .hero h1{
+
     font-family:'Orbitron',sans-serif;
-    font-size:clamp(40px,6vw,70px);
+
+    font-size:
+    clamp(40px,6vw,70px);
+
     line-height:1.1;
-    text-shadow:0 0 10px #ff1744;
+
+    text-shadow:
+    0 0 10px #ff1744;
 }
 
 .hero h1 span{
@@ -339,103 +652,182 @@ nav ul li a:hover{
 }
 
 .hero h2{
+
     color:#00eaff;
+
     margin:20px 0;
 }
 
 .hero p{
+
     color:#b9c8d9;
+
     line-height:1.8;
 }
 
 .typing{
-    border-right:3px solid #00eaff;
+
+    border-right:
+    3px solid #00eaff;
+
     white-space:nowrap;
+
     overflow:hidden;
+
     width:max-content;
+
     max-width:100%;
+
     animation:
     typing 4s steps(30) infinite alternate,
     blink .7s infinite;
 }
 
 @keyframes typing{
-    from{width:0}
-    to{width:100%}
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:100%;
+    }
+
 }
 
 @keyframes blink{
-    50%{border-color:transparent}
+
+    50%{
+        border-color:transparent;
+    }
+
 }
 
-/* BUTTON */
+
+/* =========================
+   BUTTON
+========================= */
 
 .btn{
+
     display:inline-block;
+
     margin-top:30px;
+
     padding:14px 30px;
-    border:1px solid #ff1744;
+
+    border:
+    1px solid #ff1744;
+
     color:white;
+
     text-decoration:none;
+
     border-radius:8px;
-    background:rgba(255,23,68,.08);
-    box-shadow:0 0 10px rgba(255,23,68,.5);
+
+    background:
+    rgba(255,23,68,.08);
+
+    box-shadow:
+    0 0 10px rgba(255,23,68,.5);
+
     transition:.3s;
 }
 
 .btn:hover{
+
     background:#ff1744;
-    box-shadow:0 0 20px #ff1744;
+
+    box-shadow:
+    0 0 20px #ff1744;
+
     transform:translateY(-4px);
 }
 
-/* SECTION */
+
+/* =========================
+   SECTION
+========================= */
 
 section{
     padding:100px 8%;
 }
 
 .section-title{
+
     text-align:center;
+
     margin-bottom:50px;
 }
 
 .section-title small{
+
     color:#00eaff;
+
     font-family:'Orbitron',sans-serif;
+
     letter-spacing:4px;
 }
 
 .section-title h2{
+
     font-family:'Orbitron',sans-serif;
+
     font-size:38px;
+
     margin-top:10px;
-    text-shadow:0 0 12px rgba(255,23,68,.5);
+
+    text-shadow:
+    0 0 12px rgba(255,23,68,.5);
 }
 
-/* CARD */
+
+/* =========================
+   CARD
+========================= */
 
 .card{
-    background:rgba(255,255,255,.045);
-    border:1px solid rgba(0,234,255,.15);
+
+    background:
+    rgba(255,255,255,.045);
+
+    border:
+    1px solid rgba(0,234,255,.15);
+
     border-radius:18px;
+
     padding:30px;
+
     backdrop-filter:blur(12px);
-    box-shadow:0 10px 40px rgba(0,0,0,.3);
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.3);
+
     transition:.4s;
 }
 
 .card:hover{
+
     transform:translateY(-8px);
+
     border-color:#00eaff;
-    box-shadow:0 0 20px rgba(0,234,255,.15);
+
+    box-shadow:
+    0 0 20px rgba(0,234,255,.15);
 }
 
-/* ABOUT */
+
+/* =========================
+   ABOUT
+========================= */
 
 .about-grid{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    1fr 1fr;
+
     gap:30px;
 }
 
@@ -444,62 +836,104 @@ section{
 }
 
 .profile-icon{
+
     font-size:65px;
+
     margin-bottom:20px;
-    animation:floatIcon 3s ease-in-out infinite;
+
+    animation:
+    floatIcon 3s ease-in-out infinite;
 }
 
 @keyframes floatIcon{
+
     50%{
-        transform:translateY(-10px) rotate(5deg);
+        transform:
+        translateY(-10px)
+        rotate(5deg);
     }
+
 }
 
 .profile-card h3{
+
     color:#ff1744;
+
     margin:12px 0;
 }
 
 .profile-card p{
+
     line-height:1.8;
+
     color:#b9c8d9;
 }
 
 .bio-item{
+
     padding:14px;
+
     margin-bottom:12px;
-    border-left:3px solid #00eaff;
-    background:rgba(0,234,255,.04);
+
+    border-left:
+    3px solid #00eaff;
+
+    background:
+    rgba(0,234,255,.04);
+
     transition:.3s;
 }
 
 .bio-item:hover{
-    background:rgba(255,23,68,.1);
-    transform:translateX(7px);
+
+    background:
+    rgba(255,23,68,.1);
+
+    transform:
+    translateX(7px);
 }
 
-/* TERMINAL */
+
+/* =========================
+   TERMINAL
+========================= */
 
 .terminal{
+
     max-width:850px;
+
     margin:auto;
+
     background:#05080d;
-    border:1px solid #1d3540;
+
+    border:
+    1px solid #1d3540;
+
     border-radius:15px;
+
     overflow:hidden;
-    box-shadow:0 0 30px rgba(0,234,255,.08);
+
+    box-shadow:
+    0 0 30px rgba(0,234,255,.08);
 }
 
 .terminal-head{
+
     padding:12px 18px;
+
     background:#0c131c;
+
     color:#8da0b5;
 }
 
 .terminal-body{
+
     padding:25px;
+
     font-family:monospace;
+
     line-height:2;
+
     color:#00ff9d;
 }
 
@@ -511,175 +945,514 @@ section{
     color:#00eaff;
 }
 
-/* EDUCATION */
+
+/* =========================
+   EDUCATION
+========================= */
 
 .timeline{
+
     display:grid;
+
     gap:25px;
 }
 
 .timeline-card{
-    border-left:4px solid #ff1744;
+
+    border-left:
+    4px solid #ff1744;
 }
 
 .timeline-card h3{
+
     color:#00eaff;
+
     margin-bottom:12px;
 }
 
 .timeline-card p{
+
     color:#b9c8d9;
+
     line-height:1.8;
 }
 
-/* SKILL */
+
+/* =========================
+   SKILL
+========================= */
 
 .skills{
+
     display:grid;
+
     gap:22px;
 }
 
 .skill-top{
+
     display:flex;
+
     justify-content:space-between;
+
     margin-bottom:8px;
 }
 
 .skill-bar{
+
     height:12px;
+
     background:#101722;
+
     border-radius:20px;
+
     overflow:hidden;
 }
 
 .skill-progress{
+
     height:100%;
+
     border-radius:20px;
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         90deg,
         #ff1744,
         #ff4d6d,
         #00eaff
     );
-    box-shadow:0 0 15px rgba(0,234,255,.5);
-    animation:skillGlow 2s infinite alternate;
+
+    box-shadow:
+    0 0 15px rgba(0,234,255,.5);
+
+    animation:
+    skillGlow 2s infinite alternate;
 }
 
 @keyframes skillGlow{
-    to{filter:brightness(1.4)}
+
+    to{
+        filter:brightness(1.4);
+    }
+
 }
 
-/* PROJECT */
+
+/* =========================
+   PROJECT
+========================= */
 
 .project-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:25px;
 }
 
 .project{
+
     position:relative;
+
     overflow:hidden;
 }
 
 .project::before{
+
     content:"";
+
     position:absolute;
+
     width:100%;
     height:2px;
+
     top:0;
     left:-100%;
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         90deg,
         transparent,
         #00eaff,
         transparent
     );
-    animation:scan 3s linear infinite;
+
+    animation:
+    scan 3s linear infinite;
 }
 
 @keyframes scan{
-    to{left:100%}
+
+    to{
+        left:100%;
+    }
+
 }
 
 .project-icon{
+
     font-size:45px;
+
     margin-bottom:15px;
 }
 
 .project h3{
+
     color:#00eaff;
+
     margin-bottom:12px;
 }
 
 .project p{
+
     color:#aebdce;
+
     line-height:1.7;
 }
 
-/* CONTACT */
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact-card{
+
     max-width:700px;
+
     margin:auto;
 }
 
 .contact-item{
+
     padding:18px;
+
     margin-bottom:15px;
-    background:rgba(0,234,255,.04);
-    border-left:3px solid #ff1744;
+
+    background:
+    rgba(0,234,255,.04);
+
+    border-left:
+    3px solid #ff1744;
+
     border-radius:8px;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
+
     text-align:center;
+
     padding:40px 20px;
-    border-top:1px solid rgba(0,234,255,.15);
+
+    border-top:
+    1px solid rgba(0,234,255,.15);
+
     background:#020408;
 }
 
 footer h3{
+
     font-family:'Orbitron',sans-serif;
+
     color:#ff1744;
 }
 
 footer p{
+
     color:#718096;
+
     margin-top:8px;
 }
 
-/* TOMBOL */
+
+/* =========================
+   BUTTON
+========================= */
 
 #topBtn,
 #themeBtn{
+
     position:fixed;
+
     right:25px;
+
     width:45px;
     height:45px;
+
     border:none;
+
     border-radius:50%;
+
     cursor:pointer;
+
     z-index:999;
 }
 
 #topBtn{
+
     bottom:25px;
+
     background:#ff1744;
+
     color:white;
+
     font-size:20px;
-    box-shadow:0 0 20px #ff1744;
+
+    box-shadow:
+    0 0 20px #ff1744;
 }
 
 #themeBtn{
+
     bottom:80px;
+
     background:white;
+
     font-size:20px;
+
+    transition:.3s;
 }
 
-/* RESPONSIVE */
+
+/* ==================================================
+   LIGHT MODE
+================================================== */
+
+body.light-mode{
+
+    color:#111827;
+
+    background:
+
+    radial-gradient(
+        circle at 10% 20%,
+        rgba(255,80,110,.18),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 90% 30%,
+        rgba(0,180,220,.15),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 50% 90%,
+        rgba(120,0,255,.12),
+        transparent 35%
+    ),
+
+    #f4f7fb;
+}
+
+
+/* GRID LIGHT */
+
+body.light-mode::before{
+
+    background-image:
+
+    linear-gradient(
+        rgba(0,120,150,.08) 1px,
+        transparent 1px
+    ),
+
+    linear-gradient(
+        90deg,
+        rgba(0,120,150,.08) 1px,
+        transparent 1px
+    );
+}
+
+
+/* NAVBAR LIGHT */
+
+body.light-mode nav{
+
+    background:
+    rgba(255,255,255,.88);
+
+    border-bottom:
+    1px solid rgba(0,120,150,.25);
+}
+
+body.light-mode .logo{
+    color:#111827;
+}
+
+body.light-mode nav ul li a{
+    color:#374151;
+}
+
+body.light-mode nav ul li a:hover{
+
+    color:#0099bb;
+
+    text-shadow:
+    0 0 8px rgba(0,153,187,.4);
+}
+
+
+/* HERO LIGHT */
+
+body.light-mode .hero h1{
+    color:#111827;
+}
+
+body.light-mode .hero p{
+    color:#4b5563;
+}
+
+body.light-mode .hero h2{
+    color:#0099bb;
+}
+
+body.light-mode .small-title{
+    color:#0099bb;
+}
+
+
+/* CARD LIGHT */
+
+body.light-mode .card{
+
+    background:
+    rgba(255,255,255,.78);
+
+    border-color:
+    rgba(0,150,180,.25);
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.08);
+}
+
+body.light-mode .card:hover{
+
+    border-color:#0099bb;
+
+    box-shadow:
+    0 0 20px rgba(0,150,180,.18);
+}
+
+
+/* PROFILE LIGHT */
+
+body.light-mode .profile-card p{
+    color:#4b5563;
+}
+
+
+/* BIODATA LIGHT */
+
+body.light-mode .bio-item{
+
+    background:
+    rgba(0,180,220,.06);
+
+    color:#374151;
+}
+
+body.light-mode .bio-item:hover{
+
+    background:
+    rgba(255,23,68,.08);
+}
+
+
+/* SECTION LIGHT */
+
+body.light-mode .section-title h2{
+    color:#111827;
+}
+
+
+/* TERMINAL TETAP GELAP */
+
+body.light-mode .terminal{
+
+    background:#05080d;
+
+    border-color:#1d3540;
+}
+
+body.light-mode .terminal-head{
+
+    background:#0c131c;
+
+    color:#8da0b5;
+}
+
+
+/* EDUCATION LIGHT */
+
+body.light-mode .timeline-card p{
+    color:#4b5563;
+}
+
+
+/* SKILL LIGHT */
+
+body.light-mode .skill-bar{
+    background:#dbe3ec;
+}
+
+
+/* PROJECT LIGHT */
+
+body.light-mode .project p{
+    color:#4b5563;
+}
+
+
+/* CONTACT LIGHT */
+
+body.light-mode .contact-item{
+
+    background:
+    rgba(0,150,180,.06);
+
+    color:#374151;
+}
+
+
+/* FOOTER LIGHT */
+
+body.light-mode footer{
+
+    background:#e8edf3;
+
+    border-top:
+    1px solid rgba(0,120,150,.2);
+}
+
+body.light-mode footer p{
+    color:#64748b;
+}
+
+
+/* THEME BUTTON LIGHT */
+
+body.light-mode #themeBtn{
+
+    background:#111827;
+
+    color:white;
+
+    box-shadow:
+    0 0 15px rgba(0,0,0,.25);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:1000px){
 
@@ -698,29 +1471,40 @@ footer p{
     .project-grid{
         grid-template-columns:1fr 1fr;
     }
+
 }
+
 
 @media(max-width:768px){
 
     nav{
+
         flex-direction:column;
+
         gap:12px;
     }
 
     nav ul{
+
         justify-content:center;
+
         flex-wrap:wrap;
     }
 
     .hero{
+
         flex-direction:column;
+
         text-align:center;
+
         padding-top:180px;
     }
 
     .empty-photo{
+
         width:220px;
         height:220px;
+
         font-size:65px;
     }
 
@@ -737,19 +1521,30 @@ footer p{
     }
 
     .spider{
+
         transform:scale(.75);
-        transform-origin:top right;
+
+        transform-origin:
+        top right;
     }
 
     section{
         padding:75px 6%;
     }
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     PARTICLE
+========================= -->
 
 <div class="particle p1"></div>
 <div class="particle p2"></div>
@@ -757,17 +1552,33 @@ footer p{
 <div class="particle p4"></div>
 <div class="particle p5"></div>
 
+
+<!-- =========================
+     SPIDER WEB
+========================= -->
+
 <div class="spider-web web-left"></div>
+
 <div class="spider-web web-right"></div>
 
+
+<!-- =========================
+     SPIDER
+========================= -->
+
 <div class="spider-string"></div>
+
 
 <div class="spider">
 
     <div class="spider-body">
+
         <div class="spider-eye left"></div>
+
         <div class="spider-eye right"></div>
+
     </div>
+
 
     <div class="leg l1"></div>
     <div class="leg l2"></div>
@@ -781,79 +1592,163 @@ footer p{
 
 </div>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <nav>
 
+
 <div class="logo">
-<span>🕷️</span> CUT NURSILUL
+
+<span>🕷️</span>
+
+CUT NURSILUL
+
 </div>
+
 
 <ul>
 
-<li><a href="#home">Home</a></li>
+<li>
+<a href="#home">
+Home
+</a>
+</li>
 
-<li><a href="#about">Tentang</a></li>
-
-<li><a href="#education">Pendidikan</a></li>
-
-<li><a href="#skill">Skill</a></li>
-
-<li><a href="#projects">Project</a></li>
 
 <li>
-<a class="project-link"
+<a href="#about">
+Tentang
+</a>
+</li>
+
+
+<li>
+<a href="#education">
+Pendidikan
+</a>
+</li>
+
+
+<li>
+<a href="#skill">
+Skill
+</a>
+</li>
+
+
+<li>
+<a href="#projects">
+Project
+</a>
+</li>
+
+
+<li>
+
+<a
+class="project-link"
 href="https://cutnursilul230619-netizen.github.io/toko-online/"
 target="_blank">
+
 🛒 Toko Online
+
 </a>
+
 </li>
 
+
 <li>
-<a class="project-link"
+
+<a
+class="project-link"
 href="https://cutnursilul230619-netizen.github.io/mila-dashboard/"
 target="_blank">
+
 📊 Mila
+
 </a>
+
 </li>
+
 
 <li>
-<a class="project-link"
+
+<a
+class="project-link"
 href="https://cutnursilul230619-netizen.github.io/academic-meet/"
 target="_blank">
+
 📚 Academic Meet
+
 </a>
+
 </li>
 
-<li><a href="#contact">Kontak</a></li>
+
+<li>
+<a href="#contact">
+Kontak
+</a>
+</li>
 
 </ul>
 
+
 </nav>
 
-<section class="hero" id="home">
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section
+class="hero"
+id="home"
+>
+
 
 <div class="hero-photo">
 
 <div class="empty-photo">
+
 🕷️
+
 </div>
 
 </div>
+
 
 <div class="hero-text">
 
+
 <div class="small-title">
+
 HELLO WORLD_
+
 </div>
 
+
 <h1>
-CUT <span>NURSILUL</span>
+
+CUT
+
+<span>NURSILUL</span>
+
 </h1>
 
+
 <h2 class="typing">
+
 Web Designer & Digital Creator
+
 </h2>
 
+
 <p>
+
 Halo, saya Cut Nursilul.
 
 Saya adalah mahasiswa Teknik Informatika
@@ -862,39 +1757,68 @@ UI/UX, teknologi digital, dan kreativitas.
 
 Saya senang membuat project digital
 yang modern, interaktif, dan bermanfaat.
+
 </p>
 
-<a href="#about" class="btn">
+
+<a
+href="#about"
+class="btn"
+>
+
 🚀 Explore My Profile
+
 </a>
+
 
 </div>
 
 </section>
 
+
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section id="about">
+
 
 <div class="section-title">
 
-<small>01 / PROFILE</small>
+<small>
+01 / PROFILE
+</small>
 
-<h2>Tentang Saya</h2>
+<h2>
+Tentang Saya
+</h2>
 
 </div>
 
+
 <div class="about-grid">
 
+
 <div class="card profile-card">
+
 
 <div class="profile-icon">
 👩‍💻
 </div>
 
-<h2>Cut Nursilul</h2>
 
-<h3>Web Designer & Digital Creator</h3>
+<h2>
+Cut Nursilul
+</h2>
+
+
+<h3>
+Web Designer & Digital Creator
+</h3>
+
 
 <p>
+
 Saya memiliki ketertarikan dalam dunia
 teknologi informasi, web development,
 UI/UX design, dan pengembangan project
@@ -903,98 +1827,187 @@ digital.
 Saya terus belajar dan mencoba membuat
 website yang modern, responsif, dan
 mudah digunakan.
+
 </p>
 
+
 </div>
+
 
 <div class="card">
 
-<h2>⚡ Biodata</h2>
+
+<h2>
+⚡ Biodata
+</h2>
 
 <br>
 
+
 <div class="bio-item">
-👤 <b>Nama:</b><br>
+
+👤 <b>Nama:</b>
+
+<br>
+
 Cut Nursilul
+
 </div>
 
+
 <div class="bio-item">
-🎓 <b>Status:</b><br>
+
+🎓 <b>Status:</b>
+
+<br>
+
 Mahasiswa
+
 </div>
 
+
 <div class="bio-item">
-🏫 <b>Universitas:</b><br>
+
+🏫 <b>Universitas:</b>
+
+<br>
+
 Universitas Jabal Ghafur
+
 </div>
 
+
 <div class="bio-item">
-💻 <b>Program Studi:</b><br>
+
+💻 <b>Program Studi:</b>
+
+<br>
+
 Teknik Informatika
+
 </div>
 
+
 <div class="bio-item">
-📧 <b>Email:</b><br>
+
+📧 <b>Email:</b>
+
+<br>
+
 cutnursilul230619@gmail.com
+
 </div>
+
 
 </div>
 
 </div>
 
 </section>
+
+
+<!-- =========================
+     DEVELOPER MODE
+========================= -->
+
 <section>
 
+
 <div class="section-title">
-<small>02 / SYSTEM</small>
-<h2>Developer Mode</h2>
+
+<small>
+02 / SYSTEM
+</small>
+
+<h2>
+Developer Mode
+</h2>
+
 </div>
+
 
 <div class="terminal">
 
+
 <div class="terminal-head">
+
 🔴 🟡 🟢 &nbsp; terminal.exe
+
 </div>
+
 
 <div class="terminal-body">
 
+
 <div>
-<span class="red">user@cutnursilul</span>:~$ whoami
+
+<span class="red">
+user@cutnursilul
+</span>:~$ whoami
+
 </div>
+
 
 <div>
 &gt; Cut Nursilul
 </div>
 
+
 <div>
-<span class="red">user@cutnursilul</span>:~$ skills
+
+<span class="red">
+user@cutnursilul
+</span>:~$ skills
+
 </div>
+
 
 <div>
 &gt; HTML / CSS / JavaScript / UI-UX
 </div>
 
+
 <div>
-<span class="red">user@cutnursilul</span>:~$ projects
+
+<span class="red">
+user@cutnursilul
+</span>:~$ projects
+
 </div>
+
 
 <div>
 &gt; Toko Online / Mila Dashboard / Academic Meet
 </div>
 
+
 <div>
-<span class="red">user@cutnursilul</span>:~$ status
+
+<span class="red">
+user@cutnursilul
+</span>:~$ status
+
 </div>
+
 
 <div class="blue">
+
 &gt; ONLINE • READY TO BUILD
+
 </div>
+
 
 <div>
-<span class="red">user@cutnursilul</span>:~$ _
-</div>
+
+<span class="red">
+user@cutnursilul
+</span>:~$ _
 
 </div>
+
+
+</div>
+
 </div>
 
 </section>
@@ -1006,16 +2019,28 @@ cutnursilul230619@gmail.com
 
 <section id="education">
 
+
 <div class="section-title">
-<small>03 / EDUCATION</small>
-<h2>Riwayat Pendidikan</h2>
+
+<small>
+03 / EDUCATION
+</small>
+
+<h2>
+Riwayat Pendidikan
+</h2>
+
 </div>
+
 
 <div class="timeline">
 
+
 <div class="card timeline-card">
 
-<h3>🎒 SD Negeri 1 Andeue</h3>
+<h3>
+🎒 SD Negeri 1 Andeue
+</h3>
 
 <p>
 Tahun Pendidikan: 2010 - 2016
@@ -1026,7 +2051,9 @@ Tahun Pendidikan: 2010 - 2016
 
 <div class="card timeline-card">
 
-<h3>📚 SMP Negeri 2 Mila</h3>
+<h3>
+📚 SMP Negeri 2 Mila
+</h3>
 
 <p>
 Tahun Pendidikan: 2016 - 2019
@@ -1037,7 +2064,9 @@ Tahun Pendidikan: 2016 - 2019
 
 <div class="card timeline-card">
 
-<h3>🎓 SMA Negeri 1 Mila</h3>
+<h3>
+🎓 SMA Negeri 1 Mila
+</h3>
 
 <p>
 Tahun Pendidikan: 2019 - 2021
@@ -1048,7 +2077,9 @@ Tahun Pendidikan: 2019 - 2021
 
 <div class="card timeline-card">
 
-<h3>🎓 Universitas Jabal Ghafur</h3>
+<h3>
+🎓 Universitas Jabal Ghafur
+</h3>
 
 <p>
 Program Studi: Teknik Informatika
@@ -1064,6 +2095,7 @@ Status: Mahasiswa Aktif
 
 </div>
 
+
 </div>
 
 </section>
@@ -1075,13 +2107,19 @@ Status: Mahasiswa Aktif
 
 <section id="skill">
 
+
 <div class="section-title">
 
-<small>04 / SKILLS</small>
+<small>
+04 / SKILLS
+</small>
 
-<h2>My Skills</h2>
+<h2>
+My Skills
+</h2>
 
 </div>
+
 
 <div class="card skills">
 
@@ -1089,14 +2127,25 @@ Status: Mahasiswa Aktif
 <div>
 
 <div class="skill-top">
-<span>HTML</span>
-<span>90%</span>
+
+<span>
+HTML
+</span>
+
+<span>
+90%
+</span>
+
 </div>
 
+
 <div class="skill-bar">
-<div class="skill-progress"
-style="width:90%">
-</div>
+
+<div
+class="skill-progress"
+style="width:90%"
+></div>
+
 </div>
 
 </div>
@@ -1105,14 +2154,25 @@ style="width:90%">
 <div>
 
 <div class="skill-top">
-<span>CSS</span>
-<span>85%</span>
+
+<span>
+CSS
+</span>
+
+<span>
+85%
+</span>
+
 </div>
 
+
 <div class="skill-bar">
-<div class="skill-progress"
-style="width:85%">
-</div>
+
+<div
+class="skill-progress"
+style="width:85%"
+></div>
+
 </div>
 
 </div>
@@ -1121,14 +2181,25 @@ style="width:85%">
 <div>
 
 <div class="skill-top">
-<span>JavaScript</span>
-<span>70%</span>
+
+<span>
+JavaScript
+</span>
+
+<span>
+70%
+</span>
+
 </div>
 
+
 <div class="skill-bar">
-<div class="skill-progress"
-style="width:70%">
-</div>
+
+<div
+class="skill-progress"
+style="width:70%"
+></div>
+
 </div>
 
 </div>
@@ -1137,17 +2208,29 @@ style="width:70%">
 <div>
 
 <div class="skill-top">
-<span>UI/UX Design</span>
-<span>80%</span>
+
+<span>
+UI/UX Design
+</span>
+
+<span>
+80%
+</span>
+
 </div>
+
 
 <div class="skill-bar">
-<div class="skill-progress"
-style="width:80%">
-</div>
+
+<div
+class="skill-progress"
+style="width:80%"
+></div>
+
 </div>
 
 </div>
+
 
 </div>
 
@@ -1160,11 +2243,16 @@ style="width:80%">
 
 <section id="projects">
 
+
 <div class="section-title">
 
-<small>05 / PROJECTS</small>
+<small>
+05 / PROJECTS
+</small>
 
-<h2>My Digital Projects</h2>
+<h2>
+My Digital Projects
+</h2>
 
 </div>
 
@@ -1180,17 +2268,23 @@ style="width:80%">
 🛒
 </div>
 
-<h3>Toko Online</h3>
+<h3>
+Toko Online
+</h3>
 
 <p>
+
 Website toko online untuk menampilkan
 produk secara digital.
+
 </p>
+
 
 <a
 class="btn"
 href="https://cutnursilul230619-netizen.github.io/toko-online/"
-target="_blank">
+target="_blank"
+>
 
 Buka Toko →
 
@@ -1207,17 +2301,23 @@ Buka Toko →
 📊
 </div>
 
-<h3>Mila Dashboard</h3>
+<h3>
+Mila Dashboard
+</h3>
 
 <p>
+
 Dashboard digital dengan tampilan
 modern dan interaktif.
+
 </p>
+
 
 <a
 class="btn"
 href="https://cutnursilul230619-netizen.github.io/mila-dashboard/"
-target="_blank">
+target="_blank"
+>
 
 Buka Mila →
 
@@ -1234,17 +2334,23 @@ Buka Mila →
 📚
 </div>
 
-<h3>Academic Meet</h3>
+<h3>
+Academic Meet
+</h3>
 
 <p>
+
 Project website untuk kebutuhan
 akademik dan pertemuan mahasiswa.
+
 </p>
+
 
 <a
 class="btn"
 href="https://cutnursilul230619-netizen.github.io/academic-meet/"
-target="_blank">
+target="_blank"
+>
 
 Buka Academic Meet →
 
@@ -1261,17 +2367,23 @@ Buka Academic Meet →
 🌐
 </div>
 
-<h3>Digital Portfolio</h3>
+<h3>
+Digital Portfolio
+</h3>
 
 <p>
+
 Website profil digital Cut Nursilul
 dengan desain futuristik.
+
 </p>
+
 
 <a
 class="btn"
 href="https://cutnursilul230619-netizen.github.io/profildigital2/"
-target="_blank">
+target="_blank"
+>
 
 Lihat Website →
 
@@ -1288,16 +2400,22 @@ Lihat Website →
 🎨
 </div>
 
-<h3>UI / UX Design</h3>
+<h3>
+UI / UX Design
+</h3>
 
 <p>
+
 Membuat konsep tampilan website
 yang modern, responsif dan menarik.
+
 </p>
+
 
 <a
 href="#contact"
-class="btn">
+class="btn"
+>
 
 Lihat Detail →
 
@@ -1314,23 +2432,30 @@ Lihat Detail →
 💻
 </div>
 
-<h3>Web Development</h3>
+<h3>
+Web Development
+</h3>
 
 <p>
+
 Mengembangkan berbagai project
 website menggunakan HTML, CSS
 dan JavaScript.
+
 </p>
+
 
 <a
 href="#skill"
-class="btn">
+class="btn"
+>
 
 My Skills →
 
 </a>
 
 </div>
+
 
 </div>
 
@@ -1343,49 +2468,70 @@ My Skills →
 
 <section>
 
+
 <div class="section-title">
 
-<small>06 / EXPERIENCE</small>
+<small>
+06 / EXPERIENCE
+</small>
 
-<h2>Pengalaman</h2>
+<h2>
+Pengalaman
+</h2>
 
 </div>
 
 
 <div class="card">
 
+
 <p>
+
 🌐 Membuat website profil digital
 menggunakan HTML, CSS dan JavaScript.
+
 </p>
 
 <br>
 
+
 <p>
+
 🎨 Mendesain tampilan website
 dengan konsep modern dan futuristik.
+
 </p>
 
 <br>
 
+
 <p>
+
 💻 Membuat berbagai project website
 untuk meningkatkan kemampuan coding.
+
 </p>
 
 <br>
 
+
 <p>
+
 📱 Mempelajari desain antarmuka
 aplikasi dan website.
+
 </p>
 
 <br>
 
+
 <p>
+
 🚀 Terus mengembangkan kreativitas
 di bidang teknologi digital.
+
 </p>
+
 
 </div>
 
@@ -1398,11 +2544,16 @@ di bidang teknologi digital.
 
 <section id="contact">
 
+
 <div class="section-title">
 
-<small>07 / CONTACT</small>
+<small>
+07 / CONTACT
+</small>
 
-<h2>Kontak Saya</h2>
+<h2>
+Kontak Saya
+</h2>
 
 </div>
 
@@ -1412,7 +2563,9 @@ di bidang teknologi digital.
 
 <div class="contact-item">
 
-📧 <b>Email</b><br>
+📧 <b>Email</b>
+
+<br>
 
 cutnursilul230619@gmail.com
 
@@ -1421,7 +2574,9 @@ cutnursilul230619@gmail.com
 
 <div class="contact-item">
 
-📱 <b>WhatsApp</b><br>
+📱 <b>WhatsApp</b>
+
+<br>
 
 083835969176
 
@@ -1430,7 +2585,9 @@ cutnursilul230619@gmail.com
 
 <div class="contact-item">
 
-📷 <b>Instagram</b><br>
+📷 <b>Instagram</b>
+
+<br>
 
 @ilulrs
 
@@ -1439,7 +2596,9 @@ cutnursilul230619@gmail.com
 
 <div class="contact-item">
 
-💻 <b>Website</b><br>
+💻 <b>Website</b>
+
+<br>
 
 cutnursilul230619-netizen.github.io
 
@@ -1457,21 +2616,26 @@ cutnursilul230619-netizen.github.io
 
 <footer>
 
+
 <h3>
 🕷️ CUT NURSILUL
 </h3>
+
 
 <p>
 Digital Portfolio Website
 </p>
 
+
 <p>
 © 2026 All Rights Reserved
 </p>
 
+
 <p>
 Web Designer & Digital Creator
 </p>
+
 
 </footer>
 
@@ -1480,15 +2644,21 @@ Web Designer & Digital Creator
      BUTTON
 ========================= -->
 
-<button id="topBtn"
-onclick="keAtas()">
+<button
+id="topBtn"
+onclick="keAtas()"
+title="Kembali ke atas"
+>
 
 ↑
 
 </button>
 
 
-<button id="themeBtn">
+<button
+id="themeBtn"
+title="Aktifkan mode terang"
+>
 
 🌙
 
@@ -1497,53 +2667,116 @@ onclick="keAtas()">
 
 <script>
 
+
 /* =========================
    KEMBALI KE ATAS
 ========================= */
 
 function keAtas(){
 
-window.scrollTo({
+    window.scrollTo({
 
-top:0,
+        top:0,
 
-behavior:"smooth"
+        behavior:"smooth"
 
-});
+    });
 
 }
 
 
 /* =========================
    MODE TERANG / GELAP
+   DENGAN LOCAL STORAGE
 ========================= */
 
 const themeBtn =
 document.getElementById("themeBtn");
 
 
-themeBtn.onclick=function(){
+/* Cek tema yang tersimpan */
 
-document.body.classList.toggle(
-"light-mode"
-);
+const savedTheme =
+localStorage.getItem("theme");
 
 
-if(
-document.body.classList.contains(
-"light-mode"
-)
-){
+/* Jika sebelumnya mode terang */
 
-themeBtn.innerHTML="☀️";
+if(savedTheme === "light"){
+
+    document.body.classList.add(
+        "light-mode"
+    );
+
+    themeBtn.innerHTML = "☀️";
+
+    themeBtn.title =
+    "Kembali ke mode gelap";
 
 }else{
 
-themeBtn.innerHTML="🌙";
+    themeBtn.innerHTML = "🌙";
+
+    themeBtn.title =
+    "Aktifkan mode terang";
 
 }
 
-};
+
+/* Ketika tombol ditekan */
+
+themeBtn.addEventListener(
+"click",
+function(){
+
+    document.body.classList.toggle(
+        "light-mode"
+    );
+
+
+    /* =====================
+       MODE TERANG
+    ===================== */
+
+    if(
+        document.body.classList.contains(
+            "light-mode"
+        )
+    ){
+
+        themeBtn.innerHTML = "☀️";
+
+        themeBtn.title =
+        "Kembali ke mode gelap";
+
+        localStorage.setItem(
+            "theme",
+            "light"
+        );
+
+
+    }
+
+
+    /* =====================
+       MODE GELAP
+    ===================== */
+
+    else{
+
+        themeBtn.innerHTML = "🌙";
+
+        themeBtn.title =
+        "Aktifkan mode terang";
+
+        localStorage.setItem(
+            "theme",
+            "dark"
+        );
+
+    }
+
+});
 
 
 /* =========================
@@ -1554,20 +2787,34 @@ document.addEventListener(
 "mousemove",
 function(e){
 
-const spider =
-document.querySelector(".spider");
+    const spider =
+    document.querySelector(
+        ".spider"
+    );
 
-const x =
-(e.clientX / window.innerWidth - .5) * 15;
 
-const y =
-(e.clientY / window.innerHeight - .5) * 15;
+    const x =
+    (
+        e.clientX /
+        window.innerWidth -
+        .5
+    ) * 15;
 
-spider.style.marginLeft =
-x + "px";
 
-spider.style.marginTop =
-y + "px";
+    const y =
+    (
+        e.clientY /
+        window.innerHeight -
+        .5
+    ) * 15;
+
+
+    spider.style.marginLeft =
+    x + "px";
+
+
+    spider.style.marginTop =
+    y + "px";
 
 });
 
@@ -1596,7 +2843,12 @@ console.log(
 "🛒 Toko Online Connected"
 );
 
+console.log(
+"🌙 Light/Dark Mode Connected"
+);
+
 </script>
+
 
 </body>
 
